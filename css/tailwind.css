@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --color-primary: #2D5016; /* deep-market-green */
+  --color-primary-50: #F0F4ED; /* light-market-green */
+  --color-primary-100: #D9E5CC; /* pale-market-green */
+  --color-primary-200: #B8CFA0; /* soft-market-green */
+  --color-primary-300: #96B973; /* medium-market-green */
+  --color-primary-400: #75A347; /* fresh-market-green */
+  --color-primary-500: #538D1A; /* vibrant-market-green */
+  --color-primary-600: #2D5016; /* deep-market-green */
+  --color-primary-700: #244012; /* darker-market-green */
+  --color-primary-800: #1B300E; /* darkest-market-green */
+  --color-primary-900: #12200A; /* deepest-market-green */
+
+  /* Secondary Colors */
+  --color-secondary: #8B4513; /* warm-market-brown */
+  --color-secondary-50: #F5F0EB; /* light-market-brown */
+  --color-secondary-100: #E8D7C7; /* pale-market-brown */
+  --color-secondary-200: #D4B89F; /* soft-market-brown */
+  --color-secondary-300: #C09977; /* medium-market-brown */
+  --color-secondary-400: #AC7A4F; /* fresh-market-brown */
+  --color-secondary-500: #985B27; /* vibrant-market-brown */
+  --color-secondary-600: #8B4513; /* warm-market-brown */
+  --color-secondary-700: #6F370F; /* darker-market-brown */
+  --color-secondary-800: #53290B; /* darkest-market-brown */
+  --color-secondary-900: #371B07; /* deepest-market-brown */
+
+  /* Accent Colors */
+  --color-accent: #FF6B35; /* ripe-papaya-orange */
+  --color-accent-50: #FFF4F0; /* light-papaya-orange */
+  --color-accent-100: #FFE0D1; /* pale-papaya-orange */
+  --color-accent-200: #FFBFA3; /* soft-papaya-orange */
+  --color-accent-300: #FF9E75; /* medium-papaya-orange */
+  --color-accent-400: #FF7D47; /* fresh-papaya-orange */
+  --color-accent-500: #FF6B35; /* ripe-papaya-orange */
+  --color-accent-600: #E55A2B; /* vibrant-papaya-orange */
+  --color-accent-700: #CC4921; /* darker-papaya-orange */
+  --color-accent-800: #B23817; /* darkest-papaya-orange */
+  --color-accent-900: #99270D; /* deepest-papaya-orange */
+
+  /* Background Colors */
+  --color-background: #FEFEFE; /* clean-market-table */
+  --color-surface: #F8F9FA; /* subtle-vendor-stall */
+  --color-surface-50: #FFFFFF; /* pure-white */
+  --color-surface-100: #F8F9FA; /* subtle-vendor-stall */
+  --color-surface-200: #E9ECEF; /* light-gray */
+  --color-surface-300: #DEE2E6; /* medium-gray */
+  --color-surface-400: #CED4DA; /* soft-gray */
+  --color-surface-500: #ADB5BD; /* neutral-gray */
+
+  /* Text Colors */
+  --color-text-primary: #1A1A1A; /* clear-price-reading */
+  --color-text-secondary: #6C757D; /* supporting-information */
+  --color-text-muted: #868E96; /* muted-text */
+  --color-text-light: #ADB5BD; /* light-text */
+
+  /* Status Colors */
+  --color-success: #28A745; /* fresh-vegetable-confirmation */
+  --color-success-50: #F0F8F2; /* light-success */
+  --color-success-100: #D4EDDA; /* pale-success */
+  --color-success-200: #A3D9B1; /* soft-success */
+  --color-success-300: #72C588; /* medium-success */
+  --color-success-400: #41B15F; /* fresh-success */
+  --color-success-500: #28A745; /* fresh-vegetable-confirmation */
+  --color-success-600: #1E7E34; /* darker-success */
+  --color-success-700: #155724; /* darkest-success */
+
+  --color-warning: #FFC107; /* ripe-banana-caution */
+  --color-warning-50: #FFFBF0; /* light-warning */
+  --color-warning-100: #FFF3CD; /* pale-warning */
+  --color-warning-200: #FFE69C; /* soft-warning */
+  --color-warning-300: #FFD86B; /* medium-warning */
+  --color-warning-400: #FFCA3A; /* fresh-warning */
+  --color-warning-500: #FFC107; /* ripe-banana-caution */
+  --color-warning-600: #E0A800; /* darker-warning */
+  --color-warning-700: #B08900; /* darkest-warning */
+
+  --color-error: #DC3545; /* overripe-tomato-concern */
+  --color-error-50: #FDF2F2; /* light-error */
+  --color-error-100: #F8D7DA; /* pale-error */
+  --color-error-200: #F1AEB5; /* soft-error */
+  --color-error-300: #EA868F; /* medium-error */
+  --color-error-400: #E35D6A; /* fresh-error */
+  --color-error-500: #DC3545; /* overripe-tomato-concern */
+  --color-error-600: #C82333; /* darker-error */
+  --color-error-700: #A71E2A; /* darkest-error */
+
+  /* Shadows */
+  --shadow-minimal: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-elevated: 0 4px 6px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.06);
+
+  /* Transitions */
+  --transition-fast: 200ms ease-out;
+  --transition-normal: 250ms ease-out;
+  --transition-slow: 300ms ease-out;
+}
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .font-accent {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-lg font-semibold transition-all duration-250 hover:bg-primary-700 focus:ring-2 focus:ring-primary-300 focus:outline-none shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-white px-6 py-3 rounded-lg font-semibold transition-all duration-250 hover:bg-secondary-700 focus:ring-2 focus:ring-secondary-300 focus:outline-none shadow-sm hover:shadow-md;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-white px-6 py-3 rounded-lg font-semibold transition-all duration-250 hover:bg-accent-600 focus:ring-2 focus:ring-accent-300 focus:outline-none shadow-sm hover:shadow-md;
+  }
+
+  /* Navigation specific button styles */
+  .nav-btn {
+    @apply inline-flex items-center justify-center font-medium text-sm px-4 py-2 rounded-lg transition-all duration-200 border border-transparent;
+    min-height: 36px;
+  }
+
+  .nav-btn-primary {
+    @apply nav-btn bg-primary text-white hover:bg-primary-700 focus:ring-2 focus:ring-primary-300 shadow-sm hover:shadow;
+  }
+
+  .nav-btn-secondary {
+    @apply nav-btn bg-secondary text-white hover:bg-secondary-700 focus:ring-2 focus:ring-secondary-300 shadow-sm hover:shadow;
+  }
+
+  .nav-btn-accent {
+    @apply nav-btn bg-accent text-white hover:bg-accent-600 focus:ring-2 focus:ring-accent-300 shadow-sm hover:shadow;
+  }
+
+  .card {
+    @apply bg-white rounded-lg border border-surface-300 p-6;
+    box-shadow: var(--shadow-minimal);
+  }
+
+  .card-elevated {
+    @apply bg-white rounded-lg border border-surface-200 p-6;
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .price-table {
+    @apply w-full border-collapse bg-white rounded-lg overflow-hidden;
+    box-shadow: var(--shadow-card);
+  }
+
+  .price-table th {
+    @apply bg-surface-100 px-4 py-3 text-left font-semibold text-text-primary border-b border-surface-300;
+  }
+
+  .price-table td {
+    @apply px-4 py-3 text-text-primary border-b border-surface-200;
+  }
+
+  .price-table tr:hover {
+    @apply bg-surface-50 transition-colors duration-200;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 border border-surface-300 rounded-lg focus:ring-2 focus:ring-primary-300 focus:border-primary-500 focus:outline-none transition-all duration-250;
+  }
+
+  .alert-success {
+    @apply bg-success-50 border border-success-200 text-success-700 px-4 py-3 rounded-lg;
+  }
+
+  .alert-warning {
+    @apply bg-warning-50 border border-warning-200 text-warning-700 px-4 py-3 rounded-lg;
+  }
+
+  .alert-error {
+    @apply bg-error-50 border border-error-200 text-error-700 px-4 py-3 rounded-lg;
+  }
+}
+
+@layer utilities {
+  .transition-fast {
+    transition: all var(--transition-fast);
+  }
+
+  .transition-normal {
+    transition: all var(--transition-normal);
+  }
+
+  .transition-slow {
+    transition: all var(--transition-slow);
+  }
+
+  .shadow-minimal {
+    box-shadow: var(--shadow-minimal);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  /* Custom Navigation Button Enhancements */
+  .nav-button-enhanced {
+    @apply inline-flex items-center justify-center font-medium text-sm px-4 py-2 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md border border-transparent;
+    min-height: 36px;
+  }
+
+  .nav-button-enhanced:focus {
+    @apply outline-none ring-2 ring-offset-2;
+  }
+
+  .nav-button-enhanced:active {
+    @apply transform scale-95;
+  }
+}

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FarmScout Price Alert</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'VT323', monospace;
+            background: #ffffff;
+            color: #000000;
+            margin: 0;
+            padding: 0;
+        }
+        table { border-collapse: collapse; width: 100%; }
+        .container { 
+            max-width: 600px; 
+            margin: 0 auto; 
+            background: #ffffff; 
+            border: 3px solid #000000;
+        }
+        .header { 
+            background: #ffffff; 
+            padding: 20px; 
+            text-align: center; 
+            border-bottom: 3px solid #000000;
+        }
+        .logo { 
+            font-size: 36px; 
+            font-weight: bold; 
+            color: #000000; 
+            margin-bottom: 5px;
+            font-family: 'VT323', monospace;
+            letter-spacing: 2px;
+        }
+        .tagline { 
+            font-size: 18px; 
+            color: #000000;
+            font-family: 'VT323', monospace;
+        }
+        .content { 
+            padding: 25px; 
+            background: #ffffff; 
+        }
+        .alert-box {
+            border: 3px solid #000000;
+            padding: 20px;
+            margin: 20px 0;
+            background: #ffffff;
+        }
+        .alert-title { 
+            font-size: 28px; 
+            text-align: center; 
+            margin-bottom: 15px; 
+            color: #000000;
+            font-weight: bold;
+            font-family: 'VT323', monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .alert-message { 
+            text-align: center; 
+            margin-bottom: 20px; 
+            color: #000000;
+            font-size: 18px;
+            font-family: 'VT323', monospace;
+        }
+        .product-card { 
+            background: #ffffff; 
+            padding: 20px; 
+            border: 3px solid #000000;
+            margin: 20px 0;
+        }
+        .product-name { 
+            font-size: 24px; 
+            font-weight: bold; 
+            margin-bottom: 10px;
+            color: #000000;
+            font-family: 'VT323', monospace;
+            text-transform: uppercase;
+        }
+        .product-subtitle {
+            font-size: 16px;
+            color: #000000;
+            margin-bottom: 15px;
+            font-family: 'VT323', monospace;
+        }
+        .price-row { 
+            display: flex; 
+            justify-content: space-between; 
+            margin: 10px 0;
+            font-size: 18px;
+            font-family: 'VT323', monospace;
+            padding: 10px 0;
+            border-bottom: 2px solid #000000;
+        }
+        .price-row:last-child {
+            border-bottom: none;
+        }
+        .price-label {
+            font-weight: bold;
+            color: #000000;
+        }
+        .old-price { 
+            text-decoration: line-through; 
+            color: #666; 
+        }
+        .new-price { 
+            color: #000000; 
+            font-weight: bold; 
+        }
+        .price-change-box {
+            border: 3px solid #000000;
+            padding: 15px;
+            margin: 20px 0;
+            background: #ffffff;
+            text-align: center;
+        }
+        .price-change-label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 10px;
+            font-family: 'VT323', monospace;
+            text-transform: uppercase;
+        }
+        .price-change-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #000000;
+            font-family: 'VT323', monospace;
+        }
+        .cta-button { 
+            display: block; 
+            background: #000000 !important; 
+            color: #ffffff !important; 
+            padding: 15px 30px; 
+            text-decoration: none !important; 
+            border: 3px solid #000000;
+            text-align: center; 
+            margin: 20px auto;
+            max-width: 200px;
+            font-weight: bold;
+            font-size: 18px;
+            font-family: 'VT323', monospace;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .cta-button:hover {
+            background: #ffffff !important;
+            color: #000000 !important;
+        }
+        a.cta-button {
+            color: #ffffff !important;
+            text-decoration: none !important;
+        }
+        .footer { 
+            background: #ffffff; 
+            padding: 20px; 
+            text-align: center; 
+            font-size: 14px;
+            color: #000000;
+            border-top: 3px solid #000000;
+            font-family: 'VT323', monospace;
+        }
+        .footer a { 
+            color: #000000; 
+            text-decoration: underline;
+        }
+        .footer-links {
+            margin: 10px 0;
+        }
+        .footer-links a {
+            margin: 0 10px;
+        }
+        @media (max-width: 600px) {
+            .container { margin: 10px; max-width: calc(100% - 20px); }
+            .content, .header { padding: 15px; }
+            .alert-title { font-size: 24px; }
+            .product-name { font-size: 20px; }
+            .price-row { font-size: 16px; }
+        }
+    </style>
+</head>
+<body style="background: #ffffff; margin: 0; padding: 20px;">
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">FARMSCOUT</div>
+            <div class="tagline">Tapat na Presyo</div>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            <div class="alert-box">
+                <h2 class="alert-title">PRICE ALERT!</h2>
+                <p class="alert-message">{{ALERT_MESSAGE}}</p>
+            </div>
+            
+            <!-- Product Card -->
+            <div class="product-card">
+                <div class="product-name">{{FILIPINO_NAME}}</div>
+                <div class="product-subtitle">{{PRODUCT_NAME}}</div>
+                
+                <!-- Price Info -->
+                <div class="price-row">
+                    <span class="price-label">Previous Price:</span>
+                    <span class="old-price">{{OLD_PRICE}} / {{UNIT}}</span>
+                </div>
+                <div class="price-row">
+                    <span class="price-label">New Price:</span>
+                    <span class="new-price">{{NEW_PRICE}} / {{UNIT}}</span>
+                </div>
+                
+                <!-- Price Change Box -->
+                <div class="price-change-box">
+                    <div class="price-change-label">Price Change</div>
+                    <div class="price-change-value">{{PRICE_CHANGE}} ({{PRICE_CHANGE_PERCENT}}%)</div>
+                </div>
+            </div>
+            
+            <!-- CTA Button -->
+            <a href="http://localhost/farmscout_online/price-alerts.php" class="cta-button" style="display: block; background: #000000; color: #ffffff !important; padding: 15px 30px; text-decoration: none !important; border: 3px solid #000000; text-align: center; margin: 20px auto; max-width: 200px; font-weight: bold; font-size: 18px; font-family: 'VT323', monospace; text-transform: uppercase; letter-spacing: 1px;">
+                MANAGE ALERTS
+            </a>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>Sent to {{EMAIL}}</p>
+            <div class="footer-links">
+                <a href="http://localhost/farmscout_online">FARMSCOUT</a> | 
+                <a href="http://localhost/farmscout_online/price-alerts.php">MANAGE ALERTS</a> | 
+                <a href="http://localhost/farmscout_online/unsubscribe.php?email={{EMAIL}}&token={{UNSUBSCRIBE_TOKEN}}">UNSUBSCRIBE</a> | 
+                <a href="mailto:support@farmscout.com">SUPPORT</a>
+            </div>
+            <div style="margin-top: 15px;">&copy; {{CURRENT_YEAR}} FarmScout Online</div>
+        </div>
+    </div>
+</body>
+</html>
+

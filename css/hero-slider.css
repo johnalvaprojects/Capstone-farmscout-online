@@ -1,0 +1,420 @@
+/* Simple Hero Slider Styles - Fade Transitions Only */
+
+/* Typography Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Hero Slider Container */
+.hero-slider-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #000;
+}
+
+/* Individual Hero Slides - Simple Fade System */
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+/* Background Images - Simple Split Layout */
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.hero-bg-left,
+.hero-bg-right {
+    width: 50%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: grayscale(30%) brightness(0.8);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Active slide effects */
+.hero-slide.active .hero-bg-left,
+.hero-slide.active .hero-bg-right {
+    filter: grayscale(0%) brightness(1);
+}
+
+/* Add subtle border between split images */
+.hero-bg-left::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 2;
+}
+
+/* Dark Overlay */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.7) 100%);
+    z-index: 3;
+}
+
+/* Hero Content Container */
+.hero-content {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
+    max-width: 700px;
+    width: 90%;
+    color: white;
+}
+
+/* Year Badge */
+.hero-year {
+    display: inline-block;
+    padding: 8px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease 0.2s;
+}
+
+.hero-slide:first-child .hero-year {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition-delay: 0s !important;
+}
+
+.hero-slide.active .hero-year {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Main Title */
+.hero-title {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(3rem, 7vw, 7rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin: 0;
+    overflow: visible;
+    white-space: nowrap;
+}
+
+.hero-title-line {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.hero-title-light {
+    color: rgba(255, 255, 255, 0.3);
+    transform: translateY(100%);
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s;
+}
+
+.hero-title-bold {
+    color: white;
+    font-weight: 900;
+    transform: translateY(100%);
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+}
+
+/* Make first slide text always visible immediately */
+.hero-slide:first-child .hero-title-light,
+.hero-slide:first-child .hero-title-bold {
+    transform: translateY(0) !important;
+    transition-delay: 0s !important;
+}
+
+.hero-slide.active .hero-title-light,
+.hero-slide.active .hero-title-bold {
+    transform: translateY(0);
+}
+
+/* Description Text */
+.hero-description {
+    margin-top: 40px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease 0.7s;
+}
+
+.hero-slide:first-child .hero-description {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    transition-delay: 0s !important;
+}
+
+.hero-slide.active .hero-description {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero-description p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 480px;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* Side Text */
+.hero-side-text {
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    transform-origin: center;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.4);
+    z-index: 4;
+    opacity: 0;
+    transition: opacity 0.8s ease 0.9s;
+}
+
+.hero-slide:first-child .hero-side-text {
+    opacity: 1 !important;
+    transition-delay: 0s !important;
+}
+
+.hero-slide.active .hero-side-text {
+    opacity: 1;
+}
+
+/* Navigation Indicators */
+.hero-indicators {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 5;
+}
+
+.hero-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.hero-indicator:hover {
+    border-color: rgba(255, 255, 255, 0.6);
+    transform: scale(1.1);
+}
+
+.hero-indicator.active {
+    background: white;
+    border-color: white;
+    transform: scale(1.2);
+}
+
+/* Navigation Arrows */
+.hero-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    z-index: 5;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+/* Fix SVG centering */
+.hero-nav svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.hero-nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.hero-nav:hover svg {
+    transform: translate(-50%, -50%);
+}
+
+.hero-nav-prev {
+    left: 30px;
+}
+
+.hero-nav-next {
+    right: 30px;
+}
+
+/* Year Badge in Top Right */
+.hero-slide::after {
+    content: 'FARMSCOUT 2025';
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: white;
+    z-index: 4;
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.8s ease 1s;
+}
+
+.hero-slide.active::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Slide Transition Effects */
+.hero-slide:not(.active) .hero-year,
+.hero-slide:not(.active) .hero-title-line,
+.hero-slide:not(.active) .hero-description,
+.hero-slide:not(.active) .hero-side-text {
+    opacity: 0;
+    transform: translateY(50px);
+    transition-delay: 0s;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .hero-content {
+        left: 4%;
+        max-width: 600px;
+        width: 92%;
+    }
+    
+    .hero-title {
+        font-size: clamp(2.5rem, 6vw, 5rem);
+        white-space: normal;
+    }
+    
+    .hero-title-line {
+        white-space: normal;
+    }
+    
+    .hero-description p {
+        font-size: 16px;
+    }
+    
+    .hero-nav {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .hero-nav svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .hero-nav-prev {
+        left: 20px;
+    }
+    
+    .hero-nav-next {
+        right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        left: 3%;
+        max-width: 94%;
+        width: 94%;
+    }
+    
+    .hero-title {
+        font-size: clamp(2rem, 8vw, 3.5rem);
+        white-space: normal;
+        overflow: visible;
+    }
+    
+    .hero-title-line {
+        white-space: normal;
+        overflow: visible;
+    }
+    
+    .hero-side-text {
+        display: none;
+    }
+    
+    .hero-slide::after {
+        top: 30px;
+        right: 20px;
+        font-size: 12px;
+    }
+    
+    .hero-indicators {
+        bottom: 30px;
+    }
+    
+    .hero-nav {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-description p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    .hero-year {
+        font-size: 10px;
+        padding: 6px 16px;
+        margin-bottom: 20px;
+    }
+}

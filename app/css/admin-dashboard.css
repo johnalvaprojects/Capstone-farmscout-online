@@ -1,0 +1,384 @@
+/**
+ * DTI Admin Dashboard — matches farmscout_online/admin-dashboard.php (VT323, white/black, offset shadows)
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+[data-namespace="admin"] #page_content,
+[data-namespace="admin"] main {
+  background-color: #ffffff !important;
+  display: block;
+  align-items: stretch;
+  justify-content: flex-start;
+  height: auto;
+  min-height: 100%;
+  overflow: visible;
+}
+
+.admin-dashboard-page {
+  --dti-bg: #ffffff;
+  --dti-text: #000000;
+  --dti-border: #000000;
+  --dti-box: #ffffff;
+  font-family: "VT323", monospace !important;
+  background-color: var(--dti-bg) !important;
+  color: var(--dti-text) !important;
+  min-height: calc(100vh - var(--mf-nav-h, 56px));
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.admin-dashboard-page > .fs-nav {
+  background: #ffffff !important;
+  border-bottom: 3px solid #000000 !important;
+}
+
+.admin-dashboard-page .fs-nav-logo-text,
+.admin-dashboard-page .fs-nav-tagline {
+  color: #000000 !important;
+}
+
+.admin-dashboard-page .fs-nav-menu-label {
+  color: #333333 !important;
+}
+
+.admin-dashboard-wrapper {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 1.5rem 2rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.admin-dashboard-hero {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.admin-dashboard-hero h1 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
+  font-weight: bold !important;
+  letter-spacing: 0.1em !important;
+  margin-bottom: 0.25rem !important;
+  font-family: "VT323", monospace !important;
+  color: #000000 !important;
+}
+
+.admin-dashboard-hero p {
+  font-size: clamp(0.8rem, 1.2vw, 1rem) !important;
+  letter-spacing: 0.05em !important;
+  font-family: "VT323", monospace !important;
+  color: #000000 !important;
+  opacity: 0.85;
+  margin: 0;
+}
+
+.admin-dashboard-page.is-super-admin .admin-dashboard-hero h1 {
+  letter-spacing: 0.12em;
+}
+
+.super-admin-badge {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.25rem 0.65rem;
+  border: 2px solid #000000;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: #000000;
+  color: #ffffff;
+}
+
+.admin-role-pill {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border: 2px solid #000000;
+  margin-left: 0.35rem;
+  vertical-align: middle;
+}
+
+.admin-dashboard-note {
+  border: 2px dashed #000000;
+  padding: 0.75rem 1rem;
+  background: #fafafa;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.admin-dashboard-note a {
+  color: #000000;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Stats — same as PHP */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+
+.stat-card {
+  border: 3px solid #000000;
+  padding: 1rem;
+  background-color: #ffffff;
+  transition: transform 0.3s ease;
+  border-radius: 8px;
+  box-shadow: 4px 4px 0 #000000;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #000000;
+  margin-bottom: 0.5rem;
+  font-family: "VT323", monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #000000;
+  font-family: "VT323", monospace;
+}
+
+/* View toggle — segmented control */
+.view-toggle {
+  display: inline-flex;
+  gap: 0;
+  margin-bottom: 0.5rem;
+  padding: 0.4rem;
+  border: 3px solid #000000;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+  width: 100%;
+  max-width: 100%;
+}
+
+.view-toggle-btn {
+  padding: 0.75rem 1.25rem;
+  border: none;
+  background-color: transparent;
+  color: #000000;
+  font-family: "VT323", monospace;
+  font-size: 0.95rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  position: relative;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.view-toggle-btn:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: #e0e0e0;
+}
+
+.view-toggle-btn:hover {
+  background-color: #f5f5f5;
+  color: #000000;
+}
+
+.view-toggle-btn.active {
+  background-color: #000000;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.view-toggle-btn.active::after {
+  display: none;
+}
+
+.view-section {
+  display: none;
+}
+
+.view-section.active {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Cards */
+.admin-card {
+  border: 3px solid #000000;
+  padding: 1rem;
+  background-color: #ffffff;
+  transition: transform 0.3s ease;
+  border-radius: 8px;
+  box-shadow: 4px 4px 0 #000000;
+}
+
+.admin-card:hover {
+  transform: translateY(-2px);
+}
+
+.admin-card h2 {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem) !important;
+  font-weight: bold !important;
+  margin-bottom: 0.75rem !important;
+  font-family: "VT323", monospace !important;
+  color: #000000 !important;
+  letter-spacing: 0.05em;
+}
+
+.admin-card p {
+  font-family: "VT323", monospace;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.dti-two-col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 1.5rem;
+}
+
+/* Tables */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "VT323", monospace;
+}
+
+.data-table th {
+  text-align: left;
+  padding: 0.75rem;
+  border-bottom: 2px solid #000000;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.data-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #000000;
+  font-size: 0.95rem;
+}
+
+.data-table tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Buttons */
+.admin-btn {
+  font-family: "VT323", monospace !important;
+  font-size: 0.9rem;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--dti-border);
+  background-color: var(--dti-text);
+  color: var(--dti-bg);
+  cursor: pointer;
+  transition: all 0.3s ease 0.1s;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.admin-btn:hover {
+  background-color: var(--dti-bg);
+  color: var(--dti-text);
+  transition: all 0.3s ease 0s;
+}
+
+.admin-btn-secondary {
+  background-color: var(--dti-bg);
+  color: var(--dti-text);
+}
+
+.admin-btn-secondary:hover {
+  background-color: var(--dti-text);
+  color: var(--dti-bg);
+}
+
+/* Status badges */
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border: 2px solid #000000;
+  font-family: "VT323", monospace;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.status-badge.pending {
+  background-color: #fbbf24;
+  color: #000000;
+}
+
+.status-badge.approved {
+  background-color: #22c55e;
+  color: #000000;
+}
+
+/* Item rows */
+.item-card {
+  border: 2px solid #000000;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  background-color: #ffffff;
+}
+
+.item-card:last-child {
+  margin-bottom: 0;
+}
+
+.item-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.item-card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: "VT323", monospace;
+}
+
+.item-card-meta {
+  font-size: 0.9rem;
+  color: #444;
+  margin-top: 0.25rem;
+}
+
+.item-card-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.dti-chart-placeholder {
+  min-height: 200px;
+  border: 2px dashed #cccccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 1rem;
+}

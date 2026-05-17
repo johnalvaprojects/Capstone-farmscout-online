@@ -1,0 +1,642 @@
+/* Enhanced styles for FarmScout Online Admin Interface */
+
+/* Button Styles */
+.btn-primary {
+    background-color: #111827;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: #1F2937;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: #F3F4F6;
+    color: #1F2937;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    background-color: #E5E7EB;
+    transform: translateY(-1px);
+}
+
+.btn-accent {
+    background-color: #10B981;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-accent:hover {
+    background-color: #059669;
+    transform: translateY(-1px);
+}
+
+.btn-error {
+    background-color: #DC3545;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-error:hover {
+    background-color: #C82333;
+    transform: translateY(-1px);
+}
+
+/* Input Field Styles */
+.input-field {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid #E5E7EB;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.2s;
+    background-color: white;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #111827;
+    box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.1);
+}
+
+.input-field:disabled {
+    background-color: #F9FAFB;
+    color: #6B7280;
+    cursor: not-allowed;
+}
+
+/* Card Styles */
+.card {
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.card-elevated {
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-elevated {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Category and Product Cards */
+.category-card {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s;
+}
+
+.category-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+/* Admin Panel Category Overview Cards ONLY */
+/* Target ONLY category cards (bg-white shadow-card), NOT product cards (border border-surface-200) */
+.grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3.gap-6 > div.bg-white.rounded-lg.shadow-card {
+    transition: all 0.6s ease;
+}
+
+.grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3.gap-6 > div.bg-white.rounded-lg.shadow-card:hover {
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+    transition: all 0.6s ease;
+}
+
+/* Ensure all text inside ONLY category cards turns white on hover */
+.grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3.gap-6 > div.bg-white.rounded-lg.shadow-card:hover h3,
+.grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3.gap-6 > div.bg-white.rounded-lg.shadow-card:hover p,
+.grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3.gap-6 > div.bg-white.rounded-lg.shadow-card:hover .text-text-primary,
+.grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3.gap-6 > div.bg-white.rounded-lg.shadow-card:hover .text-text-secondary,
+.grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3.gap-6 > div.bg-white.rounded-lg.shadow-card:hover .text-primary,
+.grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3.gap-6 > div.bg-white.rounded-lg.shadow-card:hover .text-accent,
+.grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3.gap-6 > div.bg-white.rounded-lg.shadow-card:hover span {
+    color: #FFFFFF !important;
+}
+
+/* Ensure SVG icons also turn white on hover - ONLY category cards */
+.grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3.gap-6 > div.bg-white.rounded-lg.shadow-card:hover svg {
+    color: #FFFFFF !important;
+}
+
+/* Ensure the colored background of icon containers also changes on hover */
+.grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3.gap-6 > div.bg-white.rounded-lg.shadow-card:hover .bg-primary-100 {
+    background-color: #333333 !important;
+}
+
+/* Ensure buttons inside category cards adapt to dark theme on hover */
+.grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3.gap-6 > div.bg-white.rounded-lg.shadow-card:hover .btn-primary {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+}
+
+.grid.grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3.gap-6 > div.bg-white.rounded-lg.shadow-card:hover .btn-secondary {
+    background-color: #333333 !important;
+    color: #FFFFFF !important;
+    border: 1px solid #555555;
+}
+
+/* Ensure all text inside the category card turns white on hover (legacy support) */
+.category-card:hover h3,
+.category-card:hover p,
+.category-card:hover .text-text-primary,
+.category-card:hover .text-text-secondary,
+.category-card:hover .text-primary,
+.category-card:hover .text-accent {
+    color: #FFFFFF;
+}
+
+/* Ensure SVG icons also turn white on hover (legacy support) */
+.category-card:hover svg {
+    color: #FFFFFF;
+}
+
+/* Ensure the colored background of icon containers also changes on hover (legacy support) */
+.category-card:hover .bg-primary-100 {
+    background-color: #333333;
+}
+
+.product-card {
+    border: 2px solid #E5E7EB;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    background-color: white;
+    transition: all 0.2s;
+}
+
+.product-card:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border-color: #D1D5DB;
+}
+
+/* Modal Improvements */
+.modal-backdrop {
+    backdrop-filter: blur(4px);
+    animation: fadeInBackdrop 0.3s ease-out;
+}
+
+@keyframes fadeInBackdrop {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+    to {
+        opacity: 1;
+        backdrop-filter: blur(4px);
+    }
+}
+
+/* Enhanced Modal Animations */
+.modal-backdrop .card-elevated {
+    animation: slideInModal 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes slideInModal {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Email List Styling */
+.email-option {
+    transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.email-option:hover {
+    transform: translateX(2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.email-option.selected {
+    background-color: #ECFDF5 !important;
+    border-color: #10B981 !important;
+    box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.1);
+}
+
+/* Search Input Focus Enhancement */
+.input-field:focus {
+    box-shadow: 0 0 0 3px rgba(17, 24, 39, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+/* Modal Compact Design */
+#removeUserModal .card-elevated {
+    max-width: 28rem; /* Ensure compact width */
+}
+
+/* Search Input Icon Spacing Fix */
+#removeUserModal .input-field {
+    padding-left: 3rem; /* Ensure enough space for search icon */
+    padding-right: 1rem;
+}
+
+/* Email List Compact Styling */
+#removeUserModal .email-option {
+    font-size: 0.875rem; /* Slightly smaller text */
+}
+
+#removeUserModal .email-option .status-badge {
+    font-size: 0.75rem; /* Smaller badges */
+    padding: 0.125rem 0.5rem;
+}
+
+/* Compact button styling in modal */
+#removeUserModal .btn-secondary,
+#removeUserModal .btn-error {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+/* Checkbox styling improvements */
+#removeUserModal .email-checkbox {
+    width: 1rem;
+    height: 1rem;
+    accent-color: #10B981;
+}
+
+#removeUserModal #selectAllEmails {
+    width: 1rem;
+    height: 1rem;
+    accent-color: #111827;
+}
+
+/* Selected email list styling */
+#selectedEmailList .font-mono {
+    font-size: 0.8125rem;
+    line-height: 1.4;
+}
+
+/* Simple Modal Improvements for FarmScout Theme */
+#removeUserModal .email-option:hover {
+    background-color: #f9fafb;
+}
+
+/* Smooth transitions for modal */
+#removeUserModal {
+    backdrop-filter: blur(4px);
+}
+
+#removeUserModal .bg-white {
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Price Change Indicators */
+.price-up {
+    color: #DC3545;
+}
+
+.price-down {
+    color: #28A745;
+}
+
+.price-same {
+    color: #6B7280;
+}
+
+/* Text Colors */
+.text-primary {
+    color: #111827;
+}
+
+.text-text-primary {
+    color: #1F2937;
+}
+
+.text-text-secondary {
+    color: #6B7280;
+}
+
+.text-text-muted {
+    color: #9CA3AF;
+}
+
+.text-accent {
+    color: #10B981;
+}
+
+.text-success {
+    color: #28A745;
+}
+
+.text-error {
+    color: #DC3545;
+}
+
+/* Background Colors */
+.bg-primary {
+    background-color: #111827;
+}
+
+.bg-primary-100 {
+    background-color: #F3F4F6;
+}
+
+.bg-accent {
+    background-color: #10B981;
+}
+
+.bg-accent-100 {
+    background-color: #ECFDF5;
+}
+
+.bg-accent-700 {
+    color: #047857;
+}
+
+.bg-success-100 {
+    background-color: #D4EDDA;
+}
+
+.bg-success-700 {
+    color: #155724;
+}
+
+.bg-error-100 {
+    background-color: #F8D7DA;
+}
+
+.bg-error-700 {
+    color: #721c24;
+}
+
+.bg-surface-50 {
+    background-color: #FFFFFF;
+}
+
+.bg-surface-200 {
+    background-color: #F4F5F7;
+}
+
+/* Responsive Grid Improvements */
+@media (max-width: 768px) {
+    .admin-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .btn-primary,
+    .btn-secondary,
+    .btn-accent,
+    .btn-error {
+        padding: 0.75rem 1rem;
+        font-size: 0.875rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .admin-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .admin-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Featured Badge */
+.featured-badge {
+    background: linear-gradient(135deg, #10B981, #059669);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Empty State Styles */
+.empty-state {
+    padding: 3rem 1rem;
+    text-align: center;
+    color: #6B7280;
+}
+
+.empty-state-icon {
+    width: 4rem;
+    height: 4rem;
+    background-color: #F3F4F6;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Loading States */
+.loading-spinner {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid #E5E7EB;
+    border-top: 2px solid #111827;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Table Improvements */
+.admin-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background-color: white;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.admin-table th {
+    background-color: #F9FAFB;
+    padding: 1rem;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #E5E7EB;
+}
+
+.admin-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #F3F4F6;
+    vertical-align: middle;
+}
+
+.admin-table tbody tr:hover {
+    background-color: #F9FAFB;
+}
+
+/* Status Indicators */
+.status-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+}
+
+.status-active {
+    background-color: #ECFDF5;
+    color: #047857;
+}
+
+.status-inactive {
+    background-color: #F3F4F6;
+    color: #6B7280;
+}
+
+.status-featured {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+
+/* Video Background Styles */
+.hero-video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+.hero-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+
+/* Enhanced text shadow for better readability on video */
+.text-shadow-strong {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.text-shadow-medium {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8), 0px 0px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* Video optimization for mobile */
+@media (max-width: 768px) {
+    .hero-video-background {
+        /* Reduce video quality on mobile for better performance */
+        object-position: center center;
+    }
+    
+    .hero-video-overlay {
+        /* Slightly darker overlay on mobile for better text visibility */
+        background: rgba(0, 0, 0, 0.4);
+    }
+}
+
+/* Ensure video doesn't interfere with animations */
+.hero-video-container {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Performance optimization for video */
+.hero-video-background {
+    /* Ensure video doesn't affect layout */
+    pointer-events: none;
+    /* Optimize rendering */
+    will-change: transform;
+}

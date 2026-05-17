@@ -1,0 +1,619 @@
+/* Market Finder - Exact Copy of Test Page Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+/* Reset everything for market finder page */
+body.market-finder-page * {
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --border-color: #000000;
+    --box-bg: #ffffff;
+}
+
+/* Body - Exact match to test page */
+body.market-finder-page {
+    font-family: 'VT323', monospace !important;
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
+    transition: background-color 0.3s ease, color 0.3s ease !important;
+    min-height: 100vh !important;
+    padding: 2rem !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+}
+
+/* Hide old hero container completely */
+body.market-finder-page .hero-container {
+    display: none !important;
+}
+
+/* Hide old markets section wrapper if it exists */
+body.market-finder-page .markets-content-section {
+    display: block !important;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: all !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: auto !important;
+}
+
+/* Hero Section - Match test page exactly */
+body.market-finder-page .noeinoi-hero-title,
+body.market-finder-page .hero-section {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+body.market-finder-page .noeinoi-hero-title h1,
+body.market-finder-page .hero-title {
+    font-size: clamp(4rem, 10vw, 8rem) !important;
+    font-weight: bold !important;
+    letter-spacing: 0.1em !important;
+    margin-bottom: 1rem !important;
+    font-family: 'VT323', monospace !important;
+    color: var(--text-color) !important;
+}
+
+body.market-finder-page .noeinoi-hero-title p,
+body.market-finder-page .hero-subtitle {
+    font-size: clamp(1.2rem, 2vw, 1.8rem) !important;
+    letter-spacing: 0.05em !important;
+    font-family: 'VT323', monospace !important;
+    color: var(--text-color) !important;
+}
+
+/* Markets Section */
+body.market-finder-page .markets-section,
+body.market-finder-page .markets-selection {
+    margin-bottom: 4rem;
+}
+
+body.market-finder-page .section-title,
+body.market-finder-page .markets-header h2 {
+    font-size: clamp(2rem, 4vw, 3rem) !important;
+    margin-bottom: 2rem !important;
+    letter-spacing: 0.05em !important;
+    font-family: 'VT323', monospace !important;
+    color: var(--text-color) !important;
+    text-align: left !important;
+}
+
+body.market-finder-page .markets-header p {
+    font-family: 'VT323', monospace !important;
+    color: var(--text-color) !important;
+    opacity: 0.7;
+    margin-bottom: 2rem;
+}
+
+body.market-finder-page .markets-section p {
+    font-family: 'VT323', monospace !important;
+    color: #000000 !important;
+    opacity: 1 !important;
+    font-size: 1rem !important;
+}
+
+/* Market Grid - Exact match */
+body.market-finder-page .market-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+    gap: 2rem !important;
+    max-width: none !important;
+    margin: 0 !important;
+}
+
+/* Market Cards - Exact match to test page */
+body.market-finder-page .market-card {
+    border: 4px solid #000000 !important;
+    padding: 2rem !important;
+    background-color: #ffffff !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    position: relative !important;
+    z-index: 1 !important;
+    text-decoration: none !important;
+    color: #000000 !important;
+    display: block !important;
+    box-shadow: none !important;
+}
+
+body.market-finder-page .market-card:hover {
+    transform: translateY(-2px);
+}
+
+body.market-finder-page .market-id {
+    font-size: 1rem !important;
+    letter-spacing: 0.1em !important;
+    margin-bottom: 1rem !important;
+    opacity: 0.6 !important;
+    font-family: 'VT323', monospace !important;
+    color: var(--text-color) !important;
+}
+
+body.market-finder-page .market-name,
+body.market-finder-page .market-card h3 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem) !important;
+    font-weight: bold !important;
+    margin-bottom: 0.5rem !important;
+    letter-spacing: 0.05em !important;
+    font-family: 'VT323', monospace !important;
+    color: var(--text-color) !important;
+}
+
+body.market-finder-page .market-address {
+    font-size: 1.1rem !important;
+    margin-bottom: 0.5rem !important;
+    opacity: 0.7 !important;
+    font-family: 'VT323', monospace !important;
+    color: var(--text-color) !important;
+}
+
+body.market-finder-page .market-hours {
+    font-size: 1rem !important;
+    margin-bottom: 1rem !important;
+    opacity: 0.6 !important;
+    font-family: 'VT323', monospace !important;
+    color: var(--text-color) !important;
+}
+
+body.market-finder-page .market-distance,
+body.market-finder-page .market-distance-badge {
+    display: inline-block !important;
+    padding: 0.3rem 0.8rem !important;
+    border: 2px solid #000000 !important;
+    font-size: 0.9rem !important;
+    margin-top: 0.5rem !important;
+    font-family: 'VT323', monospace !important;
+    color: var(--text-color) !important;
+}
+
+body.market-finder-page .market-stats {
+    display: flex !important;
+    gap: 1.5rem !important;
+    margin-top: 1rem !important;
+    padding-top: 1rem !important;
+    border-top: 2px solid #000000 !important;
+}
+
+body.market-finder-page .stat-item {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+body.market-finder-page .stat-value {
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
+    font-family: 'VT323', monospace !important;
+    color: var(--text-color) !important;
+}
+
+body.market-finder-page .stat-label {
+    font-size: 0.9rem !important;
+    opacity: 0.6 !important;
+    font-family: 'VT323', monospace !important;
+    color: var(--text-color) !important;
+}
+
+/* Hide market-card-content wrapper if it exists */
+body.market-finder-page .market-card-content {
+    width: 100%;
+}
+
+body.market-finder-page .market-card-header {
+    margin-bottom: 0;
+}
+
+/* Hover Effects - Exact match to test page */
+body.market-finder-page.box-hovered .market-card,
+body.market-finder-page.box-hovered .category-card,
+body.market-finder-page.box-hovered .product-card {
+    background-color: #1a1a1a !important;
+    border-color: #1a1a1a !important;
+    opacity: 0.4 !important;
+    transition: all 0.3s ease !important;
+}
+
+body.market-finder-page.box-hovered .market-card:hover,
+body.market-finder-page.box-hovered .category-card:hover,
+body.market-finder-page.box-hovered .product-card:hover {
+    background-color: #ffffff !important;
+    border-color: #000000 !important;
+    opacity: 1 !important;
+}
+
+body.market-finder-page.box-hovered .market-card:not(:hover) *,
+body.market-finder-page.box-hovered .category-card:not(:hover) *,
+body.market-finder-page.box-hovered .product-card:not(:hover) * {
+    color: #666666 !important;
+}
+
+body.market-finder-page.box-hovered .market-card:hover *,
+body.market-finder-page.box-hovered .category-card:hover *,
+body.market-finder-page.box-hovered .product-card:hover * {
+    color: #000000 !important;
+}
+
+body.market-finder-page.theme-dim {
+    --bg-color: #1a1a1a;
+    background-color: #1a1a1a !important;
+}
+
+body.market-finder-page.box-hovered .noeinoi-header,
+body.market-finder-page.box-hovered .noeinoi-header *,
+body.market-finder-page.box-hovered .noeinoi-hero-title,
+body.market-finder-page.box-hovered .noeinoi-hero-title *,
+body.market-finder-page.box-hovered .hero-section,
+body.market-finder-page.box-hovered .hero-section *,
+body.market-finder-page.box-hovered .hero-title,
+body.market-finder-page.box-hovered .hero-subtitle,
+body.market-finder-page.box-hovered .markets-header,
+body.market-finder-page.box-hovered .markets-header *,
+body.market-finder-page.box-hovered .section-title,
+body.market-finder-page.box-hovered .markets-section p,
+body.market-finder-page.box-hovered .markets-section > p,
+body.market-finder-page.box-hovered .landing-actions-section {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Don't change border color for header elements */
+body.market-finder-page.box-hovered .noeinoi-header,
+body.market-finder-page.box-hovered .noeinoi-header * {
+    border-color: inherit !important;
+}
+
+/* Ensure market cards keep their original borders and are not affected */
+body.market-finder-page.box-hovered .market-card:not(:hover),
+body.market-finder-page.box-hovered .market-card:not(:hover) * {
+    border-color: #000000 !important;
+}
+
+/* Category Cards */
+body.market-finder-page .category-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 2rem !important;
+    margin-top: 2rem !important;
+}
+
+body.market-finder-page .category-card,
+body.market-finder-page .card-elevated,
+body.market-finder-page a[href*="category"] {
+    border: 4px solid #000000 !important;
+    padding: 1.5rem !important;
+    background-color: #ffffff !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    position: relative !important;
+    z-index: 1 !important;
+    text-decoration: none !important;
+    color: #000000 !important;
+    display: block !important;
+    box-shadow: none !important;
+}
+
+body.market-finder-page .category-card:hover,
+body.market-finder-page .card-elevated:hover {
+    transform: translateY(-2px);
+}
+
+body.market-finder-page .category-name,
+body.market-finder-page .category-card-title {
+    font-size: clamp(1.5rem, 2.5vw, 2rem) !important;
+    font-weight: bold !important;
+    margin-bottom: 0.5rem !important;
+    letter-spacing: 0.05em !important;
+    font-family: 'VT323', monospace !important;
+    color: var(--text-color) !important;
+}
+
+body.market-finder-page .category-count {
+    font-size: 1rem !important;
+    opacity: 0.6 !important;
+    font-family: 'VT323', monospace !important;
+    color: var(--text-color) !important;
+}
+
+body.market-finder-page .category-id {
+    font-size: 1rem !important;
+    letter-spacing: 0.1em !important;
+    margin-bottom: 1rem !important;
+    opacity: 0.6 !important;
+    font-family: 'VT323', monospace !important;
+    color: var(--text-color) !important;
+}
+
+/* Product Cards */
+body.market-finder-page .product-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+    gap: 2rem !important;
+    margin-top: 2rem !important;
+}
+
+body.market-finder-page .product-card,
+body.market-finder-page .card {
+    border: 4px solid #000000 !important;
+    padding: 1.5rem !important;
+    background-color: #ffffff !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    position: relative !important;
+    z-index: 1 !important;
+    box-shadow: none !important;
+}
+
+body.market-finder-page .product-card:hover {
+    transform: translateY(-2px);
+}
+
+body.market-finder-page .product-name {
+    font-size: clamp(1.2rem, 2vw, 1.5rem) !important;
+    font-weight: bold !important;
+    margin-bottom: 0.5rem !important;
+    letter-spacing: 0.05em !important;
+    font-family: 'VT323', monospace !important;
+    color: var(--text-color) !important;
+}
+
+body.market-finder-page .product-price {
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
+    margin-top: 0.5rem !important;
+    font-family: 'VT323', monospace !important;
+    color: var(--text-color) !important;
+}
+
+body.market-finder-page .product-id {
+    font-size: 1rem !important;
+    letter-spacing: 0.1em !important;
+    margin-bottom: 1rem !important;
+    opacity: 0.6 !important;
+    font-family: 'VT323', monospace !important;
+    color: var(--text-color) !important;
+}
+
+/* Footer - Full Width & Compact */
+body.market-finder-page .mf-footer {
+    margin-top: 4rem !important;
+    margin-left: calc(-2rem - 0px) !important;
+    margin-right: calc(-2rem - 0px) !important;
+    margin-bottom: -2rem !important;
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+    padding-bottom: 1.5rem !important;
+    padding-top: 2rem !important;
+    width: calc(100% + 4rem) !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+}
+
+/* Compact Footer Wordmark */
+body.market-finder-page .mf-footer-wordmark {
+    font-size: clamp(2rem, 8vw, 4rem) !important;
+    margin-bottom: 1rem !important;
+}
+
+/* Compact Footer Copy */
+body.market-finder-page .mf-footer-copy {
+    font-size: 0.85rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.5rem !important;
+    max-width: 480px !important;
+}
+
+/* Compact Support Section */
+body.market-finder-page .mf-footer-support {
+    padding-bottom: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+body.market-finder-page .mf-footer-support-title {
+    font-size: 0.75rem !important;
+    margin-bottom: 1rem !important;
+}
+
+body.market-finder-page .mf-footer-support-buttons {
+    gap: 0.5rem !important;
+    margin-bottom: 0.75rem !important;
+}
+
+body.market-finder-page .mf-footer-support-btn {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.75rem !important;
+}
+
+body.market-finder-page .mf-footer-support-note {
+    font-size: 0.7rem !important;
+    line-height: 1.5 !important;
+}
+
+/* Compact Footer Grid */
+body.market-finder-page .mf-footer-grid {
+    gap: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+body.market-finder-page .mf-footer-column-title {
+    font-size: 0.7rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+body.market-finder-page .mf-footer-column a,
+body.market-finder-page .mf-footer-column p {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.25rem !important;
+}
+
+/* Compact Footer Bottom */
+body.market-finder-page .mf-footer-bottom {
+    font-size: 0.7rem !important;
+    gap: 0.5rem !important;
+}
+
+/* Landing Actions Section */
+body.market-finder-page .landing-actions-section {
+    margin-bottom: 6rem;
+}
+
+body.market-finder-page .landing-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+body.market-finder-page .landing-action-box {
+    border: 4px solid #000000 !important;
+    padding: 3rem 2rem !important;
+    background-color: #ffffff !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    position: relative !important;
+    z-index: 1 !important;
+    text-decoration: none !important;
+    color: inherit !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    min-height: 350px !important;
+}
+
+body.market-finder-page .landing-action-box:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* When any landing box is hovered, dim all other boxes */
+body.market-finder-page.box-hovered .landing-action-box {
+    background-color: #1a1a1a !important;
+    border-color: #1a1a1a !important;
+    opacity: 0.4 !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Keep the hovered landing box white with black borders */
+body.market-finder-page.box-hovered .landing-action-box:hover {
+    background-color: #ffffff !important;
+    border-color: #000000 !important;
+    opacity: 1 !important;
+}
+
+/* Dim text in non-hovered landing boxes */
+body.market-finder-page.box-hovered .landing-action-box * {
+    color: #666666 !important;
+}
+
+/* Keep text black in hovered landing box */
+body.market-finder-page.box-hovered .landing-action-box:hover * {
+    color: #000000 !important;
+}
+
+/* Keep tag squares black in hovered landing box */
+body.market-finder-page.box-hovered .landing-action-box:hover .tag-square {
+    background-color: #000000 !important;
+}
+
+/* Dim tag squares in non-hovered landing boxes */
+body.market-finder-page.box-hovered .landing-action-box .tag-square {
+    background-color: #666666 !important;
+}
+
+body.market-finder-page .action-box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+body.market-finder-page .action-box-id {
+    font-size: 1.2rem !important;
+    letter-spacing: 0.1em !important;
+    font-family: 'VT323', monospace !important;
+    color: var(--text-color) !important;
+    opacity: 0.6 !important;
+}
+
+body.market-finder-page .action-box-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+body.market-finder-page .action-box-title {
+    font-size: clamp(2.5rem, 5vw, 4rem) !important;
+    font-weight: 700 !important;
+    line-height: 1.1 !important;
+    margin-bottom: 1.5rem !important;
+    font-family: 'VT323', monospace !important;
+    color: var(--text-color) !important;
+    letter-spacing: 0.05em !important;
+}
+
+body.market-finder-page .action-box-description {
+    font-size: clamp(1.2rem, 2vw, 1.5rem) !important;
+    margin-bottom: 2rem !important;
+    font-family: 'VT323', monospace !important;
+    color: var(--text-color) !important;
+    opacity: 0.8 !important;
+    line-height: 1.4 !important;
+}
+
+body.market-finder-page .action-box-tags {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: auto;
+}
+
+body.market-finder-page .action-tag {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem !important;
+    font-family: 'VT323', monospace !important;
+    color: var(--text-color) !important;
+}
+
+body.market-finder-page .action-tag .tag-square {
+    width: 12px !important;
+    height: 12px !important;
+    background-color: #000000 !important;
+    transition: background-color 0.3s ease !important;
+    display: inline-block !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body.market-finder-page .market-grid,
+    body.market-finder-page .category-grid,
+    body.market-finder-page .product-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    body.market-finder-page .landing-actions-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    body.market-finder-page .landing-action-box {
+        min-height: 300px !important;
+        padding: 2rem 1.5rem !important;
+    }
+    
+    body.market-finder-page .action-box-title {
+        font-size: 2rem !important;
+    }
+    
+    body.market-finder-page .action-box-description {
+        font-size: 1.2rem !important;
+    }
+}
+

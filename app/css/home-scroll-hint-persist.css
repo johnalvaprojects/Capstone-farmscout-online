@@ -1,0 +1,11 @@
+/**
+ * Home hero scroll pill (#fsScrollHint): the SPA adds .is-hidden on first scroll
+ * to fade it out. These rules keep it visible (and restore the bounce animation).
+ */
+.fs-hero-scroll-hint.is-hidden {
+  opacity: 1 !important;
+}
+
+.fs-hero-scroll-hint.is-hidden .fs-hero-scroll-hint__pill {
+  animation: fs-scroll-hint-bounce 1.75s ease-in-out infinite !important;
+}

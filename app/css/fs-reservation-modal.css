@@ -1,0 +1,300 @@
+/* Minimal reservation modal (aligned with market-finder.php) */
+#fsReservationModal.fs-res-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: rgba(0, 0, 0, 0.72);
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+#fsReservationModal.fs-res-modal.fs-res-modal--open {
+  display: flex;
+}
+.fs-res-modal__box {
+  background: #f7f7f4;
+  color: #0a0a0a;
+  max-width: 420px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: auto;
+  border: 3px solid #0a0a0a;
+  box-shadow: 8px 8px 0 #0a0a0a;
+  font-family: "VT323", ui-monospace, monospace;
+}
+.fs-res-modal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid #0a0a0a;
+  background: #0a0a0a;
+  color: #f7f7f4;
+}
+.fs-res-modal__head h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+}
+.fs-res-modal__close {
+  background: transparent;
+  border: 2px solid rgba(247, 247, 244, 0.5);
+  color: #f7f7f4;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.fs-res-modal__close:hover {
+  border-color: #f7f7f4;
+}
+.fs-res-modal__body {
+  padding: 1rem;
+}
+.fs-res-modal__product {
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #0a0a0a;
+}
+.fs-res-modal__product-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.fs-res-modal__product-price {
+  margin-top: 0.25rem;
+  font-size: 1rem;
+}
+.fs-res-modal__success-items {
+  margin: 0;
+}
+.fs-res-modal__success-items-label {
+  display: block;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+.fs-res-modal__success-items-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+.fs-res-modal__success-items-list li {
+  margin-bottom: 0.35rem;
+}
+.fs-res-modal__success-items-list .fs-res-modal__product-name {
+  font-size: 1rem;
+}
+.fs-res-modal__group {
+  margin-bottom: 0.85rem;
+}
+.fs-res-modal__group label {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+.fs-res-modal__group input,
+.fs-res-modal__group select,
+.fs-res-modal__group textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.45rem 0.5rem;
+  border: 2px solid #0a0a0a;
+  font-family: inherit;
+  font-size: 1rem;
+  background: #fff;
+}
+.fs-res-modal__group small {
+  display: block;
+  margin-top: 0.2rem;
+  opacity: 0.85;
+  font-size: 0.85rem;
+}
+.fs-res-modal__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  justify-content: flex-end;
+}
+.fs-res-modal__actions button {
+  flex: 1;
+  min-width: 0;
+  padding: 0.55rem 0.75rem;
+  font-family: inherit;
+  font-size: 1.05rem;
+  cursor: pointer;
+  border: 2px solid #0a0a0a;
+}
+.fs-res-modal__btn-secondary {
+  background: #fff;
+  color: #0a0a0a;
+}
+.fs-res-modal__btn-primary {
+  background: #0a0a0a;
+  color: #f7f7f4;
+}
+.fs-res-modal__msg {
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+  font-size: 0.95rem;
+}
+.fs-res-modal__msg--ok {
+  background: #d4edda;
+  border: 2px solid #155724;
+  color: #155724;
+}
+.fs-res-modal__msg--err {
+  background: #f8d7da;
+  border: 2px solid #721c24;
+  color: #721c24;
+}
+
+.fs-res-modal__pay {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 2px solid #0a0a0a;
+}
+.fs-res-modal__pay-title {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.fs-res-modal__pay-sub {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+.fs-res-modal__pay-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.fs-res-modal__pay-actions button {
+  flex: 1;
+  min-width: 160px;
+  padding: 0.55rem 0.75rem;
+  font-family: inherit;
+  font-size: 1.05rem;
+  cursor: pointer;
+  border: 2px solid #0a0a0a;
+}
+
+/* GCash-style roadmap button (full integration launching later) */
+.fs-res-modal__btn-gcash-upcoming {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.12rem;
+  padding: 0.55rem 0.65rem 0.5rem;
+  border: 2px solid rgba(0, 90, 200, 0.85);
+  border-radius: 12px;
+  background: linear-gradient(145deg, #0074e4 0%, #00a884 100%);
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.22),
+    0 3px 0 rgba(0, 0, 0, 0.12);
+}
+.fs-res-modal__btn-gcash-upcoming:hover {
+  filter: brightness(1.06);
+}
+.fs-res-modal__btn-gcash-upcoming:active {
+  transform: translateY(1px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+.fs-res-modal__gcash-soon-pill {
+  display: inline-block;
+  font-size: 0.58rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.12rem 0.35rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  color: #fff;
+}
+.fs-res-modal__gcash-btn-text {
+  font-size: 1rem;
+  line-height: 1.15;
+}
+
+.fs-res-modal__btn-gcash-upcoming:disabled {
+  opacity: 0.68;
+  cursor: not-allowed;
+  filter: saturate(0.75);
+  transform: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+.fs-res-modal__btn-gcash-upcoming:disabled:hover,
+.fs-res-modal__btn-gcash-upcoming:disabled:active {
+  filter: saturate(0.75);
+  transform: none;
+}
+
+.fs-res-modal__pay-gcash-hint {
+  margin: 0.65rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  opacity: 0.88;
+  padding: 0.45rem 0.5rem;
+  border: 2px dashed rgba(10, 10, 10, 0.28);
+  background: rgba(255, 255, 255, 0.55);
+}
+.fs-res-modal__gcash {
+  margin-top: 0.75rem;
+}
+.fs-res-modal__gcash label {
+  display: block;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+}
+.fs-res-modal__gcash input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.45rem 0.5rem;
+  border: 2px solid #0a0a0a;
+  font-family: inherit;
+  font-size: 1rem;
+  background: #fff;
+}
+
+.fs-res-modal__cart-wrap {
+  margin-bottom: 0.75rem;
+}
+.fs-res-modal__cart {
+  margin-top: 0.35rem;
+  padding: 0.65rem 0.75rem;
+  border: 2px dashed rgba(10, 10, 10, 0.45);
+  background: rgba(255, 255, 255, 0.55);
+  font-size: 0.95rem;
+}
+.fs-res-modal__cart-list {
+  margin: 0.45rem 0 0;
+  padding-left: 1.1rem;
+}
+.fs-res-modal__cart-item {
+  margin: 0.25rem 0;
+  line-height: 1.35;
+}
+.fs-res-modal__cart-remove {
+  margin-left: 0.35rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0 0.15rem;
+  vertical-align: middle;
+}

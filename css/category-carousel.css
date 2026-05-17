@@ -1,0 +1,141 @@
+/**
+ * Infinite gradient 3D carousel — scoped for Market Finder categories only.
+ * Based on Clément Grellier / Codrops gradientslider (MIT).
+ */
+
+.mf-category-carousel-host {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.mf-cat-hint {
+  font-family: 'VT323', monospace;
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  text-align: center;
+  margin: 0 0 1rem;
+  color: #000;
+  opacity: 0.85;
+}
+
+.mf-cat-stage {
+  position: relative;
+  width: 100%;
+  min-height: min(72vh, 720px);
+  height: min(78vh, 800px);
+  max-height: 90vh;
+  background: #f0f0f0;
+  color: #0b0b0b;
+  overflow: hidden;
+  perspective: 1800px;
+  overscroll-behavior: none;
+  -webkit-user-select: none;
+  user-select: none;
+  border: 3px solid #000;
+  box-sizing: border-box;
+}
+
+#mfCategoryBg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  filter: blur(24px) saturate(1.05);
+  pointer-events: none;
+}
+
+.mf-cat-stage.carousel-mode {
+  touch-action: none;
+  cursor: grab;
+}
+
+.mf-cat-stage.carousel-mode.dragging {
+  cursor: grabbing;
+}
+
+#mfCategoryCards {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  transform-style: preserve-3d;
+}
+
+#mfCategoryCards .card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(26vw, 360px);
+  aspect-ratio: 4/5;
+  isolation: isolate;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, filter;
+  transform-origin: 90% center;
+  contain: layout paint;
+}
+
+#mfCategoryCards .card__img {
+  border-radius: 15px;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: translateZ(0);
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+#mfCategoryLoader {
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: #ffffff;
+  transition: opacity 0.2s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.2s linear;
+}
+
+#mfCategoryLoader.loader--hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#mfCategoryLoader .loader__content {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  min-width: 220px;
+}
+
+#mfCategoryLoader .loader__ring {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 3px solid #ddd;
+  border-top-color: #333;
+  animation: mfCatSpin 1s linear infinite;
+}
+
+@keyframes mfCatSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #mfCategoryCards .card {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Categories section: carousel replaces grid */
+.categories-section .categories-grid {
+  display: block;
+  max-width: 100%;
+}

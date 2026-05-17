@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="No product image">
+  <rect width="800" height="600" fill="#ffffff"/>
+  <rect x="24" y="24" width="752" height="552" fill="none" stroke="#000000" stroke-width="3"/>
+  <text x="400" y="290" text-anchor="middle" font-family="system-ui,Segoe UI,sans-serif" font-size="22" fill="#333333">No image</text>
+  <text x="400" y="330" text-anchor="middle" font-family="system-ui,Segoe UI,sans-serif" font-size="14" fill="#666666">placeholder</text>
+</svg>

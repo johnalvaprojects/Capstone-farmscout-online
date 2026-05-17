@@ -1,0 +1,132 @@
+/* Storefront-style homepage skin for /app/
+   Goal: match the provided reference (minimal nav, big headline, 4 feature cards).
+   This file is overrides-only: it reshapes existing home markup where possible. */
+
+:root{
+  --sf-bg: #f4f1ea;
+  --sf-surface: #ece8e0;
+  --sf-ink: #111111;
+  --sf-muted: rgba(17,17,17,.62);
+  --sf-border: rgba(17,17,17,.12);
+  --sf-accent: #f6c300;
+  --sf-radius: 18px;
+}
+
+/* Global app baseline: keep it neutral and “real-world” */
+html, body{
+  background: var(--sf-bg);
+  color: var(--sf-ink);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Home container gets the storefront canvas */
+[data-transition="container"][data-namespace="home"]{
+  min-height: 100vh;
+  background: var(--sf-bg);
+}
+
+/* When using the storefront template, hide legacy home sections if still present. */
+[data-transition="container"][data-namespace="home"] #fsCurtain,
+[data-transition="container"][data-namespace="home"] #fsMenuPanel,
+[data-transition="container"][data-namespace="home"] .fs-page,
+[data-transition="container"][data-namespace="home"] .fs-hero,
+[data-transition="container"][data-namespace="home"] .fs-home-next{
+  display: none !important;
+  visibility: hidden !important;
+}
+
+/* If the app uses a fixed/sticky nav already, soften it to match reference */
+[data-transition="container"][data-namespace="home"] .fs-nav,
+[data-transition="container"][data-namespace="home"] .header,
+[data-transition="container"][data-namespace="home"] nav{
+  background: var(--sf-bg) !important;
+  color: var(--sf-ink) !important;
+}
+
+/* Hero typography: big, bold, black */
+[data-transition="container"][data-namespace="home"] h1,
+[data-transition="container"][data-namespace="home"] .fs-brand-title,
+[data-transition="container"][data-namespace="home"] .fs-hero h1{
+  color: var(--sf-ink) !important;
+  font-weight: 900 !important;
+  letter-spacing: -0.04em !important;
+  line-height: .92 !important;
+  font-size: clamp(54px, 8.5vw, 124px) !important;
+  text-transform: none !important;
+  text-shadow: none !important;
+}
+
+/* Remove “comic” cues on home (heavy shadows, strong outlines, playful type) */
+[data-transition="container"][data-namespace="home"] *{
+  text-shadow: none;
+}
+
+/* Convert existing home card grids into the reference “tile” look */
+[data-transition="container"][data-namespace="home"] .fs-home-quick,
+[data-transition="container"][data-namespace="home"] .fs-home-featured{
+  background: transparent !important;
+}
+
+[data-transition="container"][data-namespace="home"] .fs-home-quick-inner,
+[data-transition="container"][data-namespace="home"] .fs-home-featured-inner{
+  width: min(1280px, calc(100% - 48px)) !important;
+  padding: clamp(18px, 4vh, 40px) 0 clamp(26px, 6vh, 64px) !important;
+}
+
+/* Prefer 4-up on desktop like reference */
+[data-transition="container"][data-namespace="home"] .fs-home-cards{
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+}
+
+[data-transition="container"][data-namespace="home"] .fs-home-card{
+  background: var(--sf-surface) !important;
+  border: 1px solid var(--sf-border) !important;
+  border-radius: var(--sf-radius) !important;
+  box-shadow: none !important;
+  min-height: 220px;
+  padding: 22px !important;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+[data-transition="container"][data-namespace="home"] .fs-home-card:hover{
+  transform: translateY(-2px);
+  border-color: rgba(17,17,17,.2) !important;
+  background: rgba(255,255,255,.38) !important;
+}
+
+/* First card accent (if your markup has a “primary” card, give it the warm tile) */
+[data-transition="container"][data-namespace="home"] .fs-home-card:first-child{
+  background: var(--sf-accent) !important;
+  border-color: rgba(17,17,17,.18) !important;
+}
+
+[data-transition="container"][data-namespace="home"] .fs-home-card-title{
+  font-weight: 700 !important;
+  text-transform: none !important;
+  letter-spacing: .01em !important;
+  font-size: 14px !important;
+  color: rgba(17,17,17,.78) !important;
+}
+
+[data-transition="container"][data-namespace="home"] .fs-home-card-sub{
+  color: var(--sf-muted) !important;
+}
+
+@media (max-width: 980px){
+  [data-transition="container"][data-namespace="home"] .fs-home-cards{
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 680px){
+  [data-transition="container"][data-namespace="home"] .fs-home-quick-inner,
+  [data-transition="container"][data-namespace="home"] .fs-home-featured-inner{
+    width: min(1280px, calc(100% - 32px)) !important;
+  }
+  [data-transition="container"][data-namespace="home"] .fs-home-cards{
+    grid-template-columns: 1fr !important;
+  }
+}
+

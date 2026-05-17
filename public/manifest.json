@@ -1,0 +1,65 @@
+{
+  "name": "FarmScout Online - Tapat na Presyo",
+  "short_name": "FarmScout",
+  "description": "Real-time agricultural price monitoring for Baloan Public Market. Your trusted digital guide for fresh produce, meat, fish, and processed goods with transparent pricing.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#2D5016",
+  "theme_color": "#2D5016",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["food", "shopping", "utilities"],
+  "icons": [
+    {
+      "src": "../assets/images/placeholder-product.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Search",
+      "short_name": "Search",
+      "description": "Search current prices",
+      "url": "/index.php",
+      "icons": [
+        {
+          "src": "../assets/images/placeholder-product.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Price Alerts",
+      "short_name": "Alerts",
+      "description": "Manage your price alerts",
+      "url": "/price-alerts.php",
+      "icons": [
+        {
+          "src": "../assets/images/placeholder-product.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Market Finder",
+      "short_name": "Markets",
+      "description": "Browse products by market",
+      "url": "/market-finder.php",
+      "icons": [
+        {
+          "src": "../assets/images/placeholder-product.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

@@ -1,0 +1,21 @@
+# FarmScout SPA (Vite build) — Apache/Hostinger-safe routing
+#
+# Put this file inside the deployed `/app` directory.
+# It ensures client-side routes like `/app/products` or `/app/nearest`
+# work on refresh / direct-link (no 404).
+#
+# Notes:
+# - No hard-coded RewriteBase (works in root domain or subfolder installs)
+# - No brittle rewrites to specific hashed chunk filenames
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # If the request points to a real file/folder (assets, index.html, etc), serve it.
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Otherwise, route to SPA entry.
+  RewriteRule ^ index.html [L]
+</IfModule>

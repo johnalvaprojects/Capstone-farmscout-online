@@ -1,0 +1,11 @@
+/* Home “Together” section: single Browse Market CTA, centered */
+.fs-home-next--ost .content.ost-actions-wrap--center {
+  align-items: center;
+  text-align: center;
+}
+
+.fs-home-next--ost .ost-actions--single {
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+}

@@ -1,0 +1,1138 @@
+/* Enhanced Navigation Button Styles */
+.nav-button-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: 2rem;
+    padding-left: 2rem;
+    border-left: 1px solid var(--color-surface-300);
+}
+
+.nav-enhanced-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    border: 1px solid transparent;
+    min-height: 40px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.nav-enhanced-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.nav-enhanced-btn:hover::before {
+    left: 100%;
+}
+
+.nav-enhanced-btn:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transform: translateY(-1px);
+}
+
+.nav-enhanced-btn:active {
+    transform: translateY(0) scale(0.98);
+}
+
+.nav-enhanced-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-primary-300);
+}
+
+/* Color variations */
+.nav-enhanced-btn.primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.nav-enhanced-btn.primary:hover {
+    background-color: var(--color-primary-700);
+}
+
+.nav-enhanced-btn.secondary {
+    background-color: var(--color-secondary);
+    color: white;
+}
+
+.nav-enhanced-btn.secondary:hover {
+    background-color: var(--color-secondary-700);
+}
+
+.nav-enhanced-btn.accent {
+    background-color: var(--color-accent);
+    color: white;
+}
+
+.nav-enhanced-btn.accent:hover {
+    background-color: var(--color-accent-600);
+}
+
+/* Icon styling */
+.nav-enhanced-btn svg {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
+}
+
+/* Enhanced Navigation Links */
+.nav-enhanced-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    min-height: 40px;
+    white-space: nowrap;
+    position: relative;
+}
+
+.nav-enhanced-link:hover {
+    background-color: var(--color-primary-50);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+}
+
+.nav-enhanced-link.active {
+    color: var(--color-primary);
+    background-color: var(--color-primary-100);
+    font-weight: 600;
+}
+
+/* Clean header design - 2025-09-15 */
+.header-clean {
+    border-bottom: 1px solid #e5e7eb;
+    background: white;
+}
+
+/* Cool Action Button Animations - 2025-09-15 */
+.action-btn {
+    position: relative;
+    overflow: hidden;
+    transform: perspective(1000px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.action-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease-in-out;
+    z-index: 1;
+}
+
+.action-btn:hover::before {
+    left: 100%;
+}
+
+.action-btn:hover {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.action-btn:active {
+    transform: translateY(0px) scale(1.01);
+    transition: all 0.1s ease;
+}
+
+/* Pulse animation for extra coolness */
+.action-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    z-index: 0;
+}
+
+.action-btn:hover::after {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+}
+
+/* Glow effect */
+.action-btn:hover {
+    box-shadow: 
+        0 10px 25px rgba(0, 0, 0, 0.3),
+        0 6px 10px rgba(0, 0, 0, 0.15),
+        0 0 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Text stays on top */
+.action-btn > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Fill-Up Text Animation - 2025-09-15 */
+.fill-up-text {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+}
+
+.fill-up-text .letter {
+    display: inline-block;
+    position: relative;
+    color: transparent;
+    background: linear-gradient(to top, #2D5016 0%, #2D5016 0%, transparent 0%, transparent 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fillUp 0.8s ease-out forwards;
+    animation-delay: calc(var(--letter-index) * 0.08s);
+}
+
+.fill-up-text .letter.space {
+    width: 0.3em;
+    background: none;
+    color: transparent;
+}
+
+@keyframes fillUp {
+    0% {
+        background: linear-gradient(to top, #2D5016 0%, #2D5016 0%, transparent 0%, transparent 100%);
+    }
+    100% {
+        background: linear-gradient(to top, #2D5016 0%, #2D5016 100%, transparent 100%, transparent 100%);
+    }
+}
+
+/* Enhanced fill-up with glow effect */
+.fill-up-text .letter::before {
+    content: attr(data-letter);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #2D5016;
+    opacity: 0;
+    animation: letterGlow 0.8s ease-out forwards;
+    animation-delay: calc(var(--letter-index) * 0.08s + 0.6s);
+}
+
+@keyframes letterGlow {
+    0% {
+        opacity: 0;
+        text-shadow: 0 0 0 rgba(45, 80, 22, 0);
+    }
+    50% {
+        opacity: 1;
+        text-shadow: 0 0 8px rgba(45, 80, 22, 0.3);
+    }
+    100% {
+        opacity: 1;
+        text-shadow: 0 0 0 rgba(45, 80, 22, 0);
+    }
+}
+
+/* Reveal Text Animation - From Bottom to Top */
+.simple-fill-up {
+    color: #2D5016;
+    position: relative;
+    overflow: hidden;
+}
+
+.simple-fill-up::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ffffff;
+    animation: revealFromBottom 2.5s ease-out forwards;
+    animation-delay: 0.8s;
+}
+
+@keyframes revealFromBottom {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+/* Letter-by-letter reveal version */
+.fill-up-text .letter {
+    display: inline-block;
+    position: relative;
+    color: #2D5016;
+    overflow: hidden;
+}
+
+.fill-up-text .letter::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ffffff;
+    animation: letterReveal 0.6s ease-out forwards;
+    animation-delay: calc(var(--letter-index) * 0.05s + 0.8s);
+}
+
+@keyframes letterReveal {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(-100%);
+    }
+}
+
+/* Modern Bold Design - Inspired by Reference - 2025-09-15 */
+.modern-bold-heading {
+    font-weight: 900;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: -0.02em;
+    line-height: 0.9;
+    color: #1a1a1a;
+}
+
+.modern-navigation {
+    font-weight: 600;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    padding: 0.5rem 0.5rem;
+    white-space: nowrap;
+    text-align: center;
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+/* Navigation hover effects */
+.modern-navigation:hover {
+    color: #1a1a1a;
+    transform: translateY(-1px);
+}
+
+.modern-button {
+    font-weight: 600;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    cursor: pointer;
+    font-size: 0.75rem;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.modern-button-primary {
+    background: #1a1a1a;
+    color: #ffffff;
+}
+
+.modern-button-primary:hover {
+    background: #333333;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(26, 26, 26, 0.2);
+}
+
+.modern-button-secondary {
+    background: transparent;
+    color: #1a1a1a;
+    border: 1px solid #1a1a1a;
+}
+
+.modern-button-secondary:hover {
+    background: #1a1a1a;
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(26, 26, 26, 0.15);
+}
+
+.modern-button-danger {
+    background: #dc3545;
+    color: #ffffff;
+    border: 1px solid #dc3545;
+}
+
+.modern-button-danger:hover {
+    background: #c82333;
+    color: #ffffff;
+    border-color: #c82333;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.25);
+}
+
+/* Compact admin button variant */
+.admin-compact-btn {
+    padding: 4px 8px !important;
+    font-size: 0.7rem !important;
+    min-width: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-compact-btn svg {
+    width: 12px;
+    height: 12px;
+    margin-right: 4px;
+}
+
+.admin-btn-group {
+    gap: 6px;
+}
+
+/* Modern Header Styling - Transparent for floating navbar */
+.modern-header {
+    background: transparent !important;
+    border-bottom: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure body has no margins that could cause gaps */
+body.bg-background {
+    margin: 0;
+    padding: 0;
+}
+
+/* Fix any potential container issues */
+.max-w-7xl {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.modern-logo-text {
+    font-weight: 800;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: -0.03em;
+    color: #1a1a1a;
+    font-size: 1.5rem;
+}
+
+.modern-tagline {
+    font-weight: 400;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #666666;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Modern Color Palette */
+:root {
+    --modern-black: #1a1a1a;
+    --modern-gray-900: #111111;
+    --modern-gray-800: #1f1f1f;
+    --modern-gray-700: #2d2d2d;
+    --modern-gray-600: #404040;
+    --modern-gray-500: #666666;
+    --modern-gray-400: #888888;
+    --modern-gray-300: #b3b3b3;
+    --modern-gray-200: #cccccc;
+    --modern-gray-100: #e5e5e5;
+    --modern-gray-50: #f7f7f7;
+    --modern-white: #ffffff;
+    --modern-accent: #10b981;
+}
+
+/* Modern Typography Scale */
+.text-modern-xs { font-size: 0.75rem; line-height: 1.2; }
+.text-modern-sm { font-size: 0.875rem; line-height: 1.3; }
+.text-modern-base { font-size: 1rem; line-height: 1.4; }
+.text-modern-lg { font-size: 1.125rem; line-height: 1.4; }
+.text-modern-xl { font-size: 1.25rem; line-height: 1.3; }
+.text-modern-2xl { font-size: 1.5rem; line-height: 1.2; }
+.text-modern-3xl { font-size: 1.875rem; line-height: 1.1; }
+.text-modern-4xl { font-size: 2.25rem; line-height: 1.0; }
+.text-modern-5xl { font-size: 3rem; line-height: 0.9; }
+.text-modern-6xl { font-size: 3.75rem; line-height: 0.9; }
+
+/* Modern font weights */
+.font-modern-normal { font-weight: 400; }
+.font-modern-medium { font-weight: 500; }
+.font-modern-semibold { font-weight: 600; }
+.font-modern-bold { font-weight: 700; }
+.font-modern-extrabold { font-weight: 800; }
+.font-modern-black { font-weight: 900; }
+
+/* Logo styling to remove white/gray background */
+.logo-img {
+    /* Remove white background by making it transparent */
+    background: transparent;
+    border-radius: 50%;
+    /* Try to blend with background */
+    mix-blend-mode: darken;
+    
+    /* Alternative: Use filter to remove light backgrounds */
+    filter: 
+        contrast(1.3) 
+        brightness(0.8) 
+        drop-shadow(0 0 0 rgba(255,255,255,0));
+    
+    /* Ensure crisp rendering */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Fallback - if mix-blend-mode causes issues */
+.logo-img-clean {
+    background: transparent;
+    border-radius: 50%;
+    /* Slight shadow to separate from background */
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+}
+
+/* Modern centered product cards */
+.featured-products-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card-modern {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #f1f1f1;
+}
+
+.product-card-modern:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    border-color: #e1e1e1;
+}
+
+/* Extra large hero text styling */
+.hero-heading-xl {
+    font-size: clamp(3rem, 8vw, 12rem);
+    line-height: 0.85;
+    font-weight: 900;
+    letter-spacing: -0.04em;
+}
+
+.hero-subtitle-xl {
+    font-size: clamp(1.25rem, 3vw, 2.5rem);
+    line-height: 1.3;
+    font-weight: 400;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+/* Admin Panel Button Styles */
+.admin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    min-width: 70px;
+    gap: 0.25rem;
+}
+
+.admin-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+.admin-btn-edit {
+    background-color: #3b82f6;
+    color: white;
+}
+
+.admin-btn-edit:hover {
+    background-color: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.admin-btn-delete {
+    background-color: #ef4444;
+    color: white;
+}
+
+.admin-btn-delete:hover {
+    background-color: #dc2626;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.admin-btn svg {
+    width: 0.75rem;
+    height: 0.75rem;
+    flex-shrink: 0;
+}
+
+/* Button Container */
+.admin-btn-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* Form Button Styles */
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    background-color: #3b82f6;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background-color: #2563eb;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    background-color: #6b7280;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    background-color: #4b5563;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(107, 114, 128, 0.3);
+}
+
+/* Input Field Styles */
+.input-field {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 0.875rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    background-color: white;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.input-field:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Registration form styling - removed old conflicting rules */
+
+/* Card Styles */
+.shadow-card {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Simple form spacing - no conflicts */
+
+.card-elevated {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Registration page now uses same layout as login page */
+
+/* Table Improvements */
+.table-auto {
+    table-layout: auto;
+}
+
+.min-w-full {
+    min-width: 100%;
+}
+
+/* Text Colors */
+.text-primary {
+    color: #1f2937;
+}
+
+.text-text-primary {
+    color: #1f2937;
+}
+
+.text-text-secondary {
+    color: #6b7280;
+}
+
+.text-text-muted {
+    color: #9ca3af;
+}
+
+/* Background Colors */
+.bg-surface-50 {
+    background-color: #fafbfc;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .nav-button-group {
+        margin-left: 0;
+        padding-left: 0;
+        border-left: none;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .nav-enhanced-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .action-btn:hover {
+        transform: translateY(-1px) scale(1.01);
+    }
+    
+    .admin-btn-group {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .admin-btn {
+        min-width: 60px;
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+/* Homepage hero + about section (migrated from inline styles) */
+.hero-fashion {
+    background: #ffffff;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+}
+
+.fashion-hero {
+    width: 100%;
+    padding: 2.5rem clamp(2rem, 5vw, 5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    min-height: 100vh;
+}
+
+.fashion-hero__header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 80px;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+}
+
+.fashion-hero__logo span {
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-weight: 800;
+    letter-spacing: 0.4rem;
+}
+
+.fashion-hero__links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.fashion-hero__links span {
+    position: relative;
+    padding: 0.15rem 0.35rem;
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.25s ease;
+}
+
+.fashion-hero__links span:hover {
+    color: #4b6ef5;
+    transform: translateY(-6px);
+}
+
+.fashion-hero__menu {
+    width: 56px;
+    height: 56px;
+    border: none;
+    background: #050505;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.fashion-hero__menu span {
+    width: 26px;
+    height: 2px;
+    background: #fff;
+    display: block;
+}
+
+.fashion-hero__body {
+    display: grid;
+    grid-template-columns: minmax(460px, 1fr) minmax(500px, 1fr);
+    gap: 3rem;
+    align-items: stretch;
+    width: 100%;
+    flex: 1;
+}
+
+.fashion-hero__copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.75rem;
+}
+
+.fashion-hero__eyebrow {
+    letter-spacing: 0.35rem;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.fashion-hero__copy h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    line-height: 0.95;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+}
+
+.fashion-hero__blurb {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 480px;
+    color: #444;
+}
+
+.fashion-hero__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.cta-primary,
+.cta-secondary {
+    text-decoration: none;
+    padding: 1rem 1.75rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 999px;
+}
+
+.cta-primary {
+    background: #050505;
+    color: #fff;
+}
+
+.cta-secondary {
+    border: 1px solid #050505;
+    color: #050505;
+}
+
+.cta-secondary:hover {
+    background: #050505;
+    color: #fff;
+}
+
+.fashion-hero__visual {
+    width: 100%;
+    height: 100%;
+    min-height: 540px;
+    background: #f2f2f2;
+    overflow: hidden;
+}
+
+.fashion-hero__visual video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 900px) {
+    .fashion-hero__header {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .fashion-hero__logo span {
+        letter-spacing: 0.2rem;
+    }
+
+    .fashion-hero__links {
+        justify-content: center;
+    }
+
+    .fashion-hero__links span::after {
+        display: none;
+    }
+
+    .fashion-hero__body {
+        grid-template-columns: 1fr;
+    }
+
+    .fashion-hero__copy {
+        text-align: center;
+        align-items: center;
+    }
+
+    .fashion-hero__blurb {
+        text-align: center;
+    }
+
+    .fashion-hero__cta {
+        justify-content: center;
+    }
+}
+
+.about-section {
+    background: #ffffff;
+    width: 100%;
+    padding: clamp(4rem, 10vw, 8rem) clamp(2rem, 5vw, 5rem) clamp(2rem, 5vw, 3rem);
+    min-height: 100vh;
+    display: flex;
+    align-items: stretch;
+}
+
+.about-section__content {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3rem, 8vw, 6rem);
+    min-height: 85vh;
+    justify-content: space-between;
+}
+
+.about-section__video {
+    width: 100%;
+    height: auto;
+    min-height: 250px;
+    max-height: 350px;
+    overflow: hidden;
+    background: #000;
+    margin: 1.5rem 0;
+}
+
+.about-section__video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.about-section__text-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+}
+
+.about-section__column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.about-section__column p {
+    font-size: clamp(1rem, 1.2vw, 1.1rem);
+    line-height: 1.7;
+    color: #000;
+    font-weight: 400;
+}
+
+.about-section__column--right {
+    padding-top: 2rem;
+}
+
+.about-section__statement {
+    width: 100%;
+    margin-top: auto;
+    display: flex;
+    align-items: flex-end;
+}
+
+.about-section__statement span {
+    font-size: clamp(4rem, 12vw, 10rem);
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #000;
+    display: block;
+    line-height: 0.9;
+}
+
+@media (max-width: 900px) {
+    .about-section {
+        padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 4vw, 3rem);
+        min-height: auto;
+        align-items: center;
+    }
+
+    .about-section__video {
+        min-height: 200px;
+        max-height: 280px;
+    }
+
+    .about-section__text-columns {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .about-section__column--right {
+        padding-top: 0;
+    }
+
+    .about-section__content {
+        gap: 3rem;
+        min-height: auto;
+    }
+
+    .about-section__statement span {
+        letter-spacing: 0.1em;
+    }
+}
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+    transition-delay: var(--reveal-delay, 0s);
+}
+
+.scroll-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Compact Footer Styles - Applied Globally */
+.mf-footer {
+    padding-top: 2rem !important;
+    padding-bottom: 1.5rem !important;
+}
+
+/* Compact Footer Wordmark */
+.mf-footer-wordmark {
+    font-size: clamp(2rem, 8vw, 4rem) !important;
+    margin-bottom: 1rem !important;
+}
+
+/* Compact Footer Copy */
+.mf-footer-copy {
+    font-size: 0.85rem !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.5rem !important;
+    max-width: 480px !important;
+}
+
+/* Compact Support Section */
+.mf-footer-support {
+    padding-bottom: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.mf-footer-support-title {
+    font-size: 0.75rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.mf-footer-support-buttons {
+    gap: 0.5rem !important;
+    margin-bottom: 0.75rem !important;
+}
+
+.mf-footer-support-btn {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.75rem !important;
+}
+
+.mf-footer-support-note {
+    font-size: 0.7rem !important;
+    line-height: 1.5 !important;
+}
+
+/* Compact Footer Grid */
+.mf-footer-grid {
+    gap: 1.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.mf-footer-column-title {
+    font-size: 0.7rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.mf-footer-column a,
+.mf-footer-column p {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.25rem !important;
+}
+
+/* Compact Footer Bottom */
+.mf-footer-bottom {
+    font-size: 0.7rem !important;
+    gap: 0.5rem !important;
+}

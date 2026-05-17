@@ -1,0 +1,205 @@
+/* Market Finder fullscreen slider — bell on product image + modals */
+.mf-osmo-prod-media.mf-osmo-prod-media--wrap {
+  position: relative;
+}
+
+.mf-osmo-prod-bell {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid #0a0a0a;
+  background: #fff;
+  color: #0a0a0a;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 0 rgba(10, 10, 10, 0.25);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.mf-osmo-prod-bell svg {
+  width: 20px;
+  height: 20px;
+}
+
+.mf-osmo-prod-bell:hover {
+  background: #0a0a0a;
+  color: #f7f7f4;
+  transform: scale(1.05);
+}
+
+#fsMfHistoryModal.fs-mf-ui-modal,
+#fsMfAlertModal.fs-mf-ui-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100001;
+  background: rgba(0, 0, 0, 0.72);
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+#fsMfHistoryModal.fs-mf-ui-modal.fs-mf-ui-modal--open,
+#fsMfAlertModal.fs-mf-ui-modal.fs-mf-ui-modal--open {
+  display: flex;
+}
+
+.fs-mf-ui-modal__box {
+  background: #f7f7f4;
+  color: #0a0a0a;
+  max-width: 760px;
+  width: 100%;
+  max-height: 88vh;
+  overflow: auto;
+  border: 3px solid #0a0a0a;
+  box-shadow: 8px 8px 0 #0a0a0a;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.fs-mf-ui-modal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 1rem;
+  border-bottom: 2px solid #0a0a0a;
+  background: #0a0a0a;
+  color: #f7f7f4;
+}
+
+.fs-mf-ui-modal__head h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  font-weight: 900;
+}
+
+.fs-mf-ui-modal__close {
+  background: transparent;
+  border: 2px solid rgba(247, 247, 244, 0.45);
+  color: #f7f7f4;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.fs-mf-ui-modal__body {
+  padding: 1rem;
+}
+
+.fs-mf-ui-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.fs-mf-ui-stats span {
+  display: block;
+  opacity: 0.85;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.fs-mf-ui-table-wrap {
+  max-height: 52vh;
+  overflow: auto;
+  border: 2px solid #0a0a0a;
+}
+
+.fs-mf-ui-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1.05rem;
+}
+
+.fs-mf-ui-table th,
+.fs-mf-ui-table td {
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.fs-mf-ui-table th {
+  background: #e8e8e4;
+  position: sticky;
+  top: 0;
+  font-weight: 900;
+}
+
+@media (max-width: 520px) {
+  .fs-mf-ui-modal__box {
+    max-width: 96vw;
+  }
+  .fs-mf-ui-stats {
+    grid-template-columns: 1fr;
+  }
+  .fs-mf-ui-table {
+    font-size: 1rem;
+  }
+}
+
+.fs-mf-ui-msg {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.fs-mf-ui-msg--err {
+  color: #721c24;
+}
+
+.fs-mf-ui-modal__group {
+  margin-bottom: 0.75rem;
+}
+
+.fs-mf-ui-modal__group label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+}
+
+.fs-mf-ui-modal__group input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.45rem 0.5rem;
+  border: 2px solid #0a0a0a;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.fs-mf-ui-modal__actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.fs-mf-ui-modal__actions button {
+  flex: 1;
+  padding: 0.5rem 0.65rem;
+  font-family: inherit;
+  font-size: 1.05rem;
+  cursor: pointer;
+  border: 2px solid #0a0a0a;
+}
+
+.fs-mf-ui-btn-secondary {
+  background: #fff;
+  color: #0a0a0a;
+}
+
+.fs-mf-ui-btn-primary {
+  background: #0a0a0a;
+  color: #f7f7f4;
+}

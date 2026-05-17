@@ -1,0 +1,494 @@
+/* Market Finder - Noeinoi Style CSS */
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+/* Base Styles */
+:root {
+    --noeinoi-bg-color: #ffffff;
+    --noeinoi-text-color: #000000;
+    --noeinoi-border-color: #000000;
+    --noeinoi-dim-bg: #1a1a1a;
+}
+
+/* Override body background for market finder page - HIGH SPECIFICITY */
+html body.market-finder-page {
+    font-family: 'VT323', monospace !important;
+    background-color: var(--noeinoi-bg-color) !important;
+    color: var(--noeinoi-text-color) !important;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.4 !important;
+    padding: 2rem !important; /* Match test page padding */
+    margin: 0 !important;
+    min-height: 100vh !important;
+}
+
+/* CSS Variables for hover effects */
+html body.market-finder-page {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --border-color: #000000;
+    --box-bg: #ffffff;
+}
+
+/* Reset all conflicting styles */
+body.market-finder-page * {
+    box-sizing: border-box;
+}
+
+/* Hide old header when using noeinoi header */
+body.market-finder-page header.modern-header {
+    display: none !important;
+}
+
+/* Noeinoi header styling is in noeinoi-navigation.css */
+
+/* Force markets section to be visible - override old CSS */
+body.market-finder-page #marketsSection,
+body.market-finder-page .markets-content-section {
+    display: block !important;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: all !important;
+    visibility: visible !important;
+}
+
+/* Hero Section - Noeinoi Style - HIDE OLD HERO */
+body.market-finder-page .hero-container {
+    display: none !important; /* Completely hide old hero */
+}
+
+/* Markets Content Section - Make it visible and styled - OVERRIDE OLD CSS */
+body.market-finder-page .markets-content-section,
+body.market-finder-page .markets-content-section.visible {
+    background: transparent !important;
+    color: var(--noeinoi-text-color) !important;
+    padding: 0 !important; /* Remove padding since body has it */
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: all !important;
+    display: block !important;
+    margin-top: 0 !important;
+    min-height: auto !important;
+    max-width: 100% !important;
+}
+
+/* Hero Title for Noeinoi Style */
+body.market-finder-page .noeinoi-hero-title {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 0; /* Remove padding since body has it */
+}
+
+body.market-finder-page .noeinoi-hero-title h1 {
+    font-family: 'VT323', monospace !important;
+    font-size: clamp(4rem, 10vw, 8rem) !important;
+    font-weight: bold !important;
+    letter-spacing: 0.1em !important;
+    color: var(--noeinoi-text-color) !important;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+body.market-finder-page .noeinoi-hero-title p {
+    font-family: 'VT323', monospace !important;
+    font-size: clamp(1.2rem, 2vw, 1.8rem) !important;
+    letter-spacing: 0.05em !important;
+    color: var(--noeinoi-text-color) !important;
+    opacity: 0.7;
+}
+
+/* Markets Content Section */
+body.market-finder-page .markets-content-section {
+    background: var(--noeinoi-bg-color) !important;
+    color: var(--noeinoi-text-color) !important;
+    padding: 2rem !important;
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: all !important;
+    display: block !important;
+}
+
+body.market-finder-page .markets-header {
+    text-align: left; /* Match test page - left aligned */
+    margin-bottom: 2rem;
+}
+
+body.market-finder-page .markets-header h2 {
+    font-family: 'VT323', monospace !important;
+    font-size: clamp(2rem, 4vw, 3rem) !important;
+    color: var(--noeinoi-text-color) !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    margin-bottom: 1rem;
+    text-align: left !important;
+}
+
+body.market-finder-page .markets-header p {
+    font-family: 'VT323', monospace !important;
+    font-size: clamp(1rem, 1.5vw, 1.2rem) !important;
+    color: var(--noeinoi-text-color) !important;
+    opacity: 0.7;
+    letter-spacing: 0.05em;
+}
+
+/* Market Grid */
+body.market-finder-page .market-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: none; /* Remove max-width to match test page */
+    margin: 0;
+}
+
+/* Market Cards - Noeinoi Style */
+body.market-finder-page .market-card {
+    border: 4px solid var(--noeinoi-border-color) !important;
+    padding: 2rem !important;
+    background-color: var(--noeinoi-bg-color) !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    text-decoration: none !important;
+    color: var(--noeinoi-text-color) !important;
+    display: block;
+    box-shadow: none !important;
+}
+
+body.market-finder-page .market-card:hover {
+    transform: translateY(-2px);
+}
+
+body.market-finder-page .market-card-icon {
+    display: none; /* Hide icon */
+}
+
+body.market-finder-page .market-card-content {
+    width: 100%;
+}
+
+body.market-finder-page .market-card-header {
+    margin-bottom: 1rem;
+}
+
+body.market-finder-page .market-card-header h3 {
+    font-family: 'VT323', monospace !important;
+    font-size: clamp(1.8rem, 3vw, 2.5rem) !important;
+    font-weight: bold !important;
+    color: var(--noeinoi-text-color) !important;
+    letter-spacing: 0.05em !important;
+    margin-bottom: 0.5rem;
+}
+
+body.market-finder-page .market-address {
+    font-family: 'VT323', monospace !important;
+    font-size: 1.1rem !important;
+    color: var(--noeinoi-text-color) !important;
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+}
+
+body.market-finder-page .market-hours {
+    font-family: 'VT323', monospace !important;
+    font-size: 1rem !important;
+    color: var(--noeinoi-text-color) !important;
+    opacity: 0.6;
+    margin-bottom: 1rem;
+}
+
+body.market-finder-page .market-description {
+    font-family: 'VT323', monospace !important;
+    font-size: 1rem !important;
+    color: var(--noeinoi-text-color) !important;
+    opacity: 0.6;
+    margin-bottom: 1rem;
+}
+
+body.market-finder-page .market-distance-badge {
+    font-family: 'VT323', monospace !important;
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border: 2px solid var(--noeinoi-border-color);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    color: var(--noeinoi-text-color) !important;
+}
+
+/* Market Stats - Add if not exists */
+body.market-finder-page .market-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--noeinoi-border-color);
+}
+
+body.market-finder-page .stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+body.market-finder-page .stat-value {
+    font-family: 'VT323', monospace !important;
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
+    color: var(--noeinoi-text-color) !important;
+}
+
+body.market-finder-page .stat-label {
+    font-family: 'VT323', monospace !important;
+    font-size: 0.9rem !important;
+    color: var(--noeinoi-text-color) !important;
+    opacity: 0.6;
+}
+
+/* Market ID - Add binary ID display */
+body.market-finder-page .market-id {
+    font-family: 'VT323', monospace !important;
+    font-size: 1rem !important;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+    color: var(--noeinoi-text-color) !important;
+}
+
+/* Category ID - Add binary ID display */
+body.market-finder-page .category-id {
+    font-family: 'VT323', monospace !important;
+    font-size: 1rem !important;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+    color: var(--noeinoi-text-color) !important;
+}
+
+/* Product ID - Add binary ID display */
+body.market-finder-page .product-id {
+    font-family: 'VT323', monospace !important;
+    font-size: 1rem !important;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    opacity: 0.6;
+    color: var(--noeinoi-text-color) !important;
+}
+
+/* Category Cards - Noeinoi Style */
+body.market-finder-page .category-section {
+    margin-bottom: 4rem;
+}
+
+body.market-finder-page .category-section h2,
+body.market-finder-page .category-section h3 {
+    font-family: 'VT323', monospace !important;
+    font-size: clamp(2rem, 4vw, 3rem) !important;
+    color: var(--noeinoi-text-color) !important;
+    letter-spacing: 0.05em !important;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+body.market-finder-page .card-elevated,
+body.market-finder-page a[href*="category"] {
+    border: 4px solid var(--noeinoi-border-color) !important;
+    padding: 1.5rem !important;
+    background-color: var(--noeinoi-bg-color) !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    text-decoration: none !important;
+    color: var(--noeinoi-text-color) !important;
+    display: block;
+    box-shadow: none !important;
+}
+
+body.market-finder-page .card-elevated:hover,
+body.market-finder-page a[href*="category"]:hover {
+    transform: translateY(-2px);
+}
+
+body.market-finder-page .category-card-title,
+body.market-finder-page .category-card-header h3 {
+    font-family: 'VT323', monospace !important;
+    font-size: clamp(1.5rem, 2.5vw, 2rem) !important;
+    font-weight: bold !important;
+    color: var(--noeinoi-text-color) !important;
+    letter-spacing: 0.05em !important;
+    margin-bottom: 0.5rem;
+}
+
+body.market-finder-page .category-card-subtitle {
+    font-family: 'VT323', monospace !important;
+    font-size: 1rem !important;
+    color: var(--noeinoi-text-color) !important;
+    opacity: 0.6;
+}
+
+body.market-finder-page .category-card-icon {
+    display: none; /* Hide category icons for minimalist look */
+}
+
+/* Product Cards - Noeinoi Style */
+body.market-finder-page .products-content {
+    background: var(--noeinoi-bg-color) !important;
+    color: var(--noeinoi-text-color) !important;
+    padding: 2rem !important;
+}
+
+body.market-finder-page .product-card,
+body.market-finder-page .card {
+    border: 4px solid var(--noeinoi-border-color) !important;
+    padding: 1.5rem !important;
+    background-color: var(--noeinoi-bg-color) !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    box-shadow: none !important;
+}
+
+body.market-finder-page .product-card:hover,
+body.market-finder-page .card:hover {
+    transform: translateY(-2px);
+}
+
+body.market-finder-page .product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid var(--noeinoi-border-color);
+    margin-bottom: 1rem;
+    background-color: #f0f0f0;
+}
+
+body.market-finder-page .product-card h3,
+body.market-finder-page .product-card .product-name {
+    font-family: 'VT323', monospace !important;
+    font-size: clamp(1.2rem, 2vw, 1.5rem) !important;
+    font-weight: bold !important;
+    color: var(--noeinoi-text-color) !important;
+    letter-spacing: 0.05em !important;
+    margin-bottom: 0.5rem;
+}
+
+body.market-finder-page .product-price {
+    font-family: 'VT323', monospace !important;
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
+    color: var(--noeinoi-text-color) !important;
+    margin-top: 0.5rem;
+}
+
+/* Hover Effects - Dim Background and Other Cards - Match test page exactly */
+body.market-finder-page.box-hovered .market-card,
+body.market-finder-page.box-hovered .card-elevated,
+body.market-finder-page.box-hovered a[href*="category"],
+body.market-finder-page.box-hovered .product-card,
+body.market-finder-page.box-hovered .card {
+    background-color: #1a1a1a !important;
+    border-color: #1a1a1a !important;
+    opacity: 0.4 !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Keep hovered box bright - MUST come after the above rule */
+body.market-finder-page.box-hovered .market-card:hover,
+body.market-finder-page.box-hovered .card-elevated:hover,
+body.market-finder-page.box-hovered a[href*="category"]:hover,
+body.market-finder-page.box-hovered .product-card:hover,
+body.market-finder-page.box-hovered .card:hover {
+    background-color: #ffffff !important;
+    border-color: #000000 !important;
+    opacity: 1 !important;
+}
+
+/* Dim text in non-hovered boxes */
+body.market-finder-page.box-hovered .market-card *,
+body.market-finder-page.box-hovered .card-elevated *,
+body.market-finder-page.box-hovered a[href*="category"] *,
+body.market-finder-page.box-hovered .product-card *,
+body.market-finder-page.box-hovered .card * {
+    color: #666666 !important;
+}
+
+/* Keep text black in hovered box - MUST come after the above rule */
+body.market-finder-page.box-hovered .market-card:hover *,
+body.market-finder-page.box-hovered .card-elevated:hover *,
+body.market-finder-page.box-hovered a[href*="category"]:hover *,
+body.market-finder-page.box-hovered .product-card:hover *,
+body.market-finder-page.box-hovered .card:hover * {
+    color: #000000 !important;
+}
+
+/* Dim dark background on hover - use CSS variable like test page */
+body.market-finder-page.theme-dim {
+    --bg-color: #1a1a1a;
+    background-color: #1a1a1a !important;
+}
+
+/* Dim header and other elements when hovering */
+body.market-finder-page.box-hovered .noeinoi-header,
+body.market-finder-page.box-hovered .noeinoi-header *,
+body.market-finder-page.box-hovered .noeinoi-hero-title,
+body.market-finder-page.box-hovered .noeinoi-hero-title *,
+body.market-finder-page.box-hovered .markets-header,
+body.market-finder-page.box-hovered .markets-header h2,
+body.market-finder-page.box-hovered .markets-header p,
+body.market-finder-page.box-hovered .section-title {
+    color: #666666 !important;
+    border-color: #666666 !important;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+
+/* Filter Chips - Noeinoi Style */
+body.market-finder-page .filter-chip {
+    font-family: 'VT323', monospace !important;
+    border: 2px solid var(--noeinoi-border-color) !important;
+    background-color: var(--noeinoi-bg-color) !important;
+    color: var(--noeinoi-text-color) !important;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+body.market-finder-page .filter-chip:hover {
+    background-color: var(--noeinoi-text-color) !important;
+    color: var(--noeinoi-bg-color) !important;
+}
+
+/* Back Links - Noeinoi Style */
+body.market-finder-page a[href*="market-finder"] {
+    font-family: 'VT323', monospace !important;
+    color: var(--noeinoi-text-color) !important;
+    text-decoration: none;
+    border-bottom: 2px solid var(--noeinoi-border-color);
+    padding-bottom: 0.2rem;
+    transition: all 0.3s ease;
+}
+
+body.market-finder-page a[href*="market-finder"]:hover {
+    opacity: 0.7;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body.market-finder-page .market-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    body.market-finder-page .hero-container {
+        padding: 2rem 1rem !important;
+    }
+    
+    body.market-finder-page .markets-content-section {
+        padding: 1rem !important;
+    }
+}
+
+/* Text reveal effect - will be handled by JavaScript */
+body.market-finder-page .reveal-text {
+    transition: none;
+}
+

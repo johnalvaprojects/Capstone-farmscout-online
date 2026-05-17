@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FarmScout Price Alert - Special Event</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+        
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body { 
+            font-family: 'Inter', Arial, sans-serif;
+            background: #1a1a1a;
+            color: #FFFFFF;
+            margin: 0;
+            padding: 0;
+            line-height: 1.4;
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+        }
+        
+        .email-container { 
+            max-width: 500px; 
+            margin: 0 auto; 
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        
+        /* Header Section */
+        .header-section {
+            background: linear-gradient(135deg, #2D5016 0%, #1a3309 100%);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header-accent {
+            background: #FF3333;
+            color: #FFFFFF;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+        
+        .main-title {
+            font-size: 42px;
+            font-weight: 900;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            line-height: 0.9;
+            margin-bottom: 4px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .sub-title {
+            font-size: 28px;
+            font-weight: 900;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            line-height: 0.9;
+            margin-bottom: 16px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        /* Product Image Section */
+        .product-image-section {
+            background: #FF3333;
+            padding: 24px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .product-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 4px solid #FFFFFF;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+        }
+        
+        .product-name-overlay {
+            background: rgba(0,0,0,0.8);
+            color: #FFFFFF;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 700;
+            margin-top: 12px;
+            display: inline-block;
+        }
+        
+        /* Content Section */
+        .content-section {
+            background: #1a1a1a;
+            padding: 24px;
+            text-align: center;
+        }
+        
+        .alert-message {
+            font-size: 16px;
+            color: #CCCCCC;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        /* Price Card */
+        .price-card {
+            background: linear-gradient(135deg, #2A2A2A 0%, #1E1E1E 100%);
+            border: 2px solid #2D5016;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 16px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #FF3333, #2D5016, #FF3333);
+        }
+        
+        .product-details {
+            margin-bottom: 16px;
+        }
+        
+        .product-name-main {
+            font-size: 20px;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 4px;
+        }
+        
+        .product-name-sub {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 12px;
+        }
+        
+        .price-comparison {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 12px 0;
+        }
+        
+        .price-old {
+            font-size: 18px;
+            color: #888;
+            text-decoration: line-through;
+            font-weight: 600;
+        }
+        
+        .price-new {
+            font-size: 24px;
+            color: #75A347;
+            font-weight: 800;
+        }
+        
+        .price-change-badge {
+            background: #FF3333;
+            color: #FFFFFF;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 700;
+            text-align: center;
+            margin: 16px auto;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(255, 51, 51, 0.3);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: #2D5016;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .cta-text {
+            color: #FFFFFF;
+            font-size: 14px;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        
+        .cta-button {
+            background: #FF3333;
+            color: #FFFFFF;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(255, 51, 51, 0.3);
+        }
+        
+        .cta-button:hover {
+            background: #E62E2E;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 51, 51, 0.4);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #0F0F0F;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+        
+        .footer-content {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .footer-links {
+            margin: 12px 0;
+        }
+        
+        .footer-links a {
+            color: #75A347;
+            text-decoration: none;
+            margin: 0 8px;
+            font-weight: 600;
+        }
+        
+        .footer-links a:hover {
+            color: #FF3333;
+        }
+        
+        .footer-logo {
+            font-size: 16px;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 4px;
+        }
+        
+        .footer-tagline {
+            font-size: 10px;
+            color: #888;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .email-container { 
+                margin: 8px; 
+                max-width: calc(100% - 16px); 
+            }
+            
+            .main-title { 
+                font-size: 32px; 
+            }
+            
+            .sub-title { 
+                font-size: 22px; 
+            }
+            
+            .content-section, .header-section { 
+                padding: 16px; 
+            }
+            
+            .price-card { 
+                padding: 16px; 
+            }
+            
+            .product-name-main { 
+                font-size: 18px; 
+            }
+            
+            .price-new { 
+                font-size: 20px; 
+            }
+            
+            .cta-button {
+                padding: 12px 24px;
+                font-size: 13px;
+            }
+        }
+        
+        /* Animation Effects */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body style="background: #1a1a1a; margin: 0; padding: 16px;">
+    <div class="email-container">
+        <!-- Header Section -->
+        <div class="header-section">
+            <div class="header-accent">PRICE DROP ALERT!</div>
+            <div class="main-title">SPECIAL</div>
+            <div class="sub-title">PRICE EVENT</div>
+        </div>
+        
+        <!-- Product Image Section -->
+        <div class="product-image-section">
+            <img src="{{PRODUCT_IMAGE}}" alt="{{PRODUCT_NAME}}" class="product-image" onerror="this.style.display='none'">
+            <div class="product-name-overlay">{{FILIPINO_NAME}}</div>
+        </div>
+        
+        <!-- Content Section -->
+        <div class="content-section">
+            <div class="alert-message">
+                Don't miss out on this exclusive price drop! Get the freshest {{FILIPINO_NAME}} at an unbeatable price. 
+                This limited-time offer won't last long - secure your savings now!
+            </div>
+            
+            <!-- Price Card -->
+            <div class="price-card">
+                <div class="product-details">
+                    <div class="product-name-main">{{FILIPINO_NAME}}</div>
+                    <div class="product-name-sub">{{PRODUCT_NAME}}</div>
+                </div>
+                
+                <div class="price-comparison">
+                    <div>
+                        <div style="font-size: 12px; color: #888; text-transform: uppercase;">Before</div>
+                        <div class="price-old">{{OLD_PRICE}}/{{UNIT}}</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="font-size: 12px; color: #75A347; text-transform: uppercase; font-weight: 700;">Now</div>
+                        <div class="price-new">{{NEW_PRICE}}/{{UNIT}}</div>
+                    </div>
+                </div>
+                
+                <div class="price-change-badge">
+                    {{PRICE_CHANGE_ICON}} YOU SAVE {{PRICE_CHANGE}} ({{PRICE_CHANGE_PERCENT}}% OFF)
+                </div>
+            </div>
+            
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <div class="cta-text">
+                    {{ALERT_MESSAGE}}<br>
+                    Visit our market portal to explore more deals and manage your price alerts.
+                </div>
+                <a href="http://localhost/farmscout_online/market-finder.php" class="cta-button">
+                    BROWSE MORE DEALS
+                </a>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-logo">FARMSCOUT</div>
+            <div class="footer-tagline">Tapat na Presyo</div>
+            
+            <div class="footer-content">
+                <div style="margin: 12px 0;">
+                    Sent to {{EMAIL}}
+                </div>
+                
+                <div class="footer-links">
+                    <a href="http://localhost/farmscout_online">Visit FarmScout</a> |
+                    <a href="http://localhost/farmscout_online/price-alerts.php">Manage Alerts</a> |
+                    <a href="mailto:support@farmscout.com">Contact Support</a>
+                </div>
+                
+                <div style="margin-top: 16px; padding-top: 12px; border-top: 1px solid #333;">
+                    &copy; {{CURRENT_YEAR}} FarmScout Online. All rights reserved.<br>
+                    Baloan Public Market Digital Platform
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

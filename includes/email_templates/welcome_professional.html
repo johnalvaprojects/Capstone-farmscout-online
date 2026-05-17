@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="x-apple-disable-message-reformatting">
+    <title>Welcome to FarmScout Online</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Client-specific Styles */
+        #outlook a { padding: 0; }
+        .ReadMsgBody { width: 100%; }
+        .ExternalClass { width: 100%; }
+        .ExternalClass * { line-height: 100%; }
+        
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            background-color: #f8fafc;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        table {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+        
+        td {
+            border-collapse: collapse;
+            mso-line-height-rule: exactly;
+        }
+        
+        img {
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+            -ms-interpolation-mode: bicubic;
+        }
+        
+        /* Email Container */
+        .email-wrapper {
+            width: 100% !important;
+            background-color: #f8fafc;
+            padding: 40px 20px;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Header */
+        .header {
+            background: #ffffff;
+            padding: 40px 40px 20px 40px;
+            text-align: center;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        
+        .logo {
+            margin-bottom: 20px;
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            font-weight: 800;
+            color: #16a34a;
+            margin: 0;
+            letter-spacing: -0.5px;
+        }
+        
+        .tagline {
+            font-size: 14px;
+            color: #64748b;
+            margin: 4px 0 0 0;
+            font-weight: 500;
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 40px;
+            text-align: center;
+        }
+        
+        /* Welcome Icon */
+        .welcome-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px auto;
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(22, 163, 74, 0.3);
+        }
+        
+        /* Main Title */
+        .main-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        
+        .main-subtitle {
+            font-size: 18px;
+            color: #475569;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+        
+        /* Features Grid */
+        .features-section {
+            background: #f8fafc;
+            border-radius: 20px;
+            padding: 32px;
+            margin: 40px 0;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .features-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 24px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .feature-item {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+            display: block;
+        }
+        
+        .feature-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+        
+        .feature-description {
+            font-size: 14px;
+            color: #64748b;
+            line-height: 1.4;
+        }
+        
+        /* Call to Action */
+        .cta-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 20px;
+            padding: 32px;
+            margin: 40px 0;
+            border: 2px solid #f59e0b;
+        }
+        
+        .cta-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 12px;
+        }
+        
+        .cta-subtitle {
+            font-size: 16px;
+            color: #92400e;
+            margin-bottom: 24px;
+            line-height: 1.5;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            color: #ffffff !important;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(22, 163, 74, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(22, 163, 74, 0.4);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #f8fafc;
+            padding: 32px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .footer-text {
+            font-size: 16px;
+            color: #475569;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        
+        .footer-links {
+            margin-top: 16px;
+        }
+        
+        .footer-links a {
+            color: #16a34a;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 0 8px;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .copyright {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-top: 24px;
+            padding-top: 16px;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        /* Mobile Responsiveness */
+        @media only screen and (max-width: 640px) {
+            .email-container {
+                margin: 0 10px;
+                border-radius: 16px;
+            }
+            
+            .main-content {
+                padding: 24px;
+            }
+            
+            .header {
+                padding: 24px;
+            }
+            
+            .main-title {
+                font-size: 28px;
+            }
+            
+            .features-section {
+                padding: 24px;
+                margin: 24px 0;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            
+            .feature-item {
+                padding: 20px;
+            }
+            
+            .cta-section {
+                padding: 24px;
+                margin: 24px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-wrapper">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td align="center">
+                    <div class="email-container">
+                        <!-- Header -->
+                        <div class="header">
+                            <div class="logo">
+                                <h1 class="logo-text">FARMSCOUT</h1>
+                                <p class="tagline">Tapat na Presyo</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Main Content -->
+                        <div class="main-content">
+                            <!-- Welcome Icon -->
+                            <div class="welcome-icon">
+                                🌾
+                            </div>
+                            
+                            <!-- Main Message -->
+                            <h2 class="main-title">Welcome {{USER_NAME}}!</h2>
+                            <p class="main-subtitle">You've joined FarmScout Online, your trusted partner for real-time market prices from Baloan Public Market!</p>
+                            
+                            <!-- Features Section -->
+                            <div class="features-section">
+                                <h3 class="features-title">What you can do:</h3>
+                                
+                                <div class="features-grid">
+                                    <div class="feature-item">
+                                        <div class="feature-icon">🔔</div>
+                                        <h4 class="feature-title">Price Alerts</h4>
+                                        <p class="feature-description">Get notified when prices change for your favorite products</p>
+                                    </div>
+                                    
+                                    <div class="feature-item">
+                                        <div class="feature-icon">🛒</div>
+                                        <h4 class="feature-title">Shopping Lists</h4>
+                                        <p class="feature-description">Create and manage smart shopping lists with current prices</p>
+                                    </div>
+                                    
+                                    <div class="feature-item">
+                                        <div class="feature-icon">📊</div>
+                                        <h4 class="feature-title">Price History</h4>
+                                        <p class="feature-description">Track price trends and make informed shopping decisions</p>
+                                    </div>
+                                    
+                                    <div class="feature-item">
+                                        <div class="feature-icon">🏪</div>
+                                        <h4 class="feature-title">Market Connect</h4>
+                                        <p class="feature-description">Connect directly with trusted market vendors</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Call to Action -->
+                            <div class="cta-section">
+                                <h3 class="cta-title">Ready to start saving?</h3>
+                                <p class="cta-subtitle">Set up your first price alert and never miss a great deal again!</p>
+                                <a href="{{WEBSITE_URL}}/price-alerts.php" class="cta-button">
+                                    Set Your First Price Alert
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Footer -->
+                        <div class="footer">
+                            <p class="footer-text">
+                                If you have any questions, feel free to contact us. We're here to help you get the best prices at Baloan Public Market!<br><br>
+                                <strong>Happy shopping!<br>The FarmScout Team</strong>
+                            </p>
+                            
+                            <div class="footer-links">
+                                <a href="{{WEBSITE_URL}}">Visit Website</a>
+                                <a href="mailto:support@farmscout-online.com">Contact Support</a>
+                            </div>
+                            
+                            <div class="copyright">
+                                &copy; {{CURRENT_YEAR}} FarmScout Online. All rights reserved.
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

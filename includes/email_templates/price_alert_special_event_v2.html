@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FarmScout Price Alert - Special Event</title>
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Arial, sans-serif;
+            background: #1a1a1a;
+            color: #FFFFFF;
+            margin: 0;
+            padding: 0;
+            line-height: 1.4;
+        }
+        
+        .email-container { 
+            max-width: 500px; 
+            margin: 0 auto; 
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        
+        /* Header Section */
+        .header-section {
+            background: linear-gradient(135deg, #2D5016 0%, #1a3309 100%);
+            padding: 24px 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header-accent {
+            background: #FF3333;
+            color: #FFFFFF;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding: 6px 16px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+        
+        .main-title {
+            font-size: 38px;
+            font-weight: 900;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            line-height: 0.9;
+            margin-bottom: 6px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .sub-title {
+            font-size: 26px;
+            font-weight: 900;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            line-height: 0.9;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        /* Product Image Section */
+        .product-image-section {
+            background: #FF3333;
+            padding: 24px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .product-image-container {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .product-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 4px solid #FFFFFF;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+            display: block;
+        }
+        
+        .product-name-overlay {
+            background: rgba(0,0,0,0.85);
+            color: #FFFFFF;
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 16px;
+            display: inline-block;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        /* Content Section */
+        .content-section {
+            background: #1a1a1a;
+            padding: 24px;
+            text-align: center;
+        }
+        
+        .alert-message {
+            font-size: 15px;
+            color: #CCCCCC;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        /* Price Card */
+        .price-card {
+            background: linear-gradient(135deg, #2A2A2A 0%, #1E1E1E 100%);
+            border: 2px solid #2D5016;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .price-card-header {
+            height: 3px;
+            background: linear-gradient(90deg, #FF3333, #2D5016, #FF3333);
+            margin: -20px -20px 20px -20px;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .product-details {
+            margin-bottom: 20px;
+        }
+        
+        .product-name-main {
+            font-size: 22px;
+            font-weight: bold;
+            color: #FFFFFF;
+            margin-bottom: 6px;
+        }
+        
+        .product-name-sub {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 16px;
+        }
+        
+        /* Price Comparison Table */
+        .price-comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 16px 0;
+        }
+        
+        .price-comparison-table td {
+            padding: 12px;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        .price-label {
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 4px;
+        }
+        
+        .price-old {
+            font-size: 18px;
+            color: #888;
+            text-decoration: line-through;
+            font-weight: bold;
+        }
+        
+        .price-new {
+            font-size: 26px;
+            color: #75A347;
+            font-weight: bold;
+        }
+        
+        .price-vs {
+            font-size: 18px;
+            color: #666;
+            font-weight: bold;
+        }
+        
+        .price-change-badge {
+            background: #FF3333;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px auto;
+            display: inline-block;
+            box-shadow: 0 4px 12px rgba(255, 51, 51, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: #2D5016;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .cta-text {
+            color: #FFFFFF;
+            font-size: 14px;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        
+        .cta-button {
+            background: #FF3333;
+            color: #FFFFFF;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            box-shadow: 0 4px 16px rgba(255, 51, 51, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #0F0F0F;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+        
+        .footer-logo {
+            font-size: 16px;
+            font-weight: bold;
+            color: #FFFFFF;
+            margin-bottom: 4px;
+        }
+        
+        .footer-tagline {
+            font-size: 10px;
+            color: #888;
+            margin-bottom: 16px;
+        }
+        
+        .footer-content {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .footer-links {
+            margin: 12px 0;
+        }
+        
+        .footer-links a {
+            color: #75A347;
+            text-decoration: none;
+            margin: 0 8px;
+            font-weight: bold;
+        }
+        
+        .footer-links a:hover {
+            color: #FF3333;
+        }
+        
+        /* Responsive Design */
+        @media only screen and (max-width: 600px) {
+            .email-container { 
+                margin: 8px; 
+                max-width: calc(100% - 16px); 
+            }
+            
+            .main-title { 
+                font-size: 28px; 
+            }
+            
+            .sub-title { 
+                font-size: 20px; 
+            }
+            
+            .content-section, .header-section { 
+                padding: 16px; 
+            }
+            
+            .price-card { 
+                padding: 16px; 
+            }
+            
+            .product-name-main { 
+                font-size: 18px; 
+            }
+            
+            .price-new { 
+                font-size: 22px; 
+            }
+            
+            .cta-button {
+                padding: 12px 24px;
+                font-size: 13px;
+            }
+            
+            .product-image {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        
+        /* Ensure compatibility across email clients */
+        table {
+            border-collapse: collapse;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 0;
+        }
+        
+        a {
+            color: #75A347;
+        }
+        
+        .no-underline {
+            text-decoration: none !important;
+        }
+    </style>
+</head>
+<body style="background: #1a1a1a; margin: 0; padding: 16px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Arial, sans-serif;">
+    <!-- Email Container -->
+    <table role="presentation" style="width: 100%; max-width: 500px; margin: 0 auto; background: #1a1a1a; border-radius: 12px; overflow: hidden;">
+        <tr>
+            <td>
+                <!-- Header Section -->
+                <table role="presentation" style="width: 100%; background: linear-gradient(135deg, #2D5016 0%, #1a3309 100%);">
+                    <tr>
+                        <td style="padding: 24px 20px; text-align: center;">
+                            <div style="background: #FF3333; color: #FFFFFF; font-size: 11px; font-weight: bold; letter-spacing: 1px; padding: 6px 16px; border-radius: 20px; display: inline-block; margin-bottom: 16px; text-transform: uppercase;">
+                                PRICE DROP ALERT!
+                            </div>
+                            <div style="font-size: 38px; font-weight: 900; color: #FFFFFF; text-transform: uppercase; letter-spacing: -1px; line-height: 0.9; margin-bottom: 6px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                                SPECIAL
+                            </div>
+                            <div style="font-size: 26px; font-weight: 900; color: #FFFFFF; text-transform: uppercase; letter-spacing: -0.5px; line-height: 0.9; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                                PRICE EVENT
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                
+                <!-- Product Image Section -->
+                <table role="presentation" style="width: 100%; background: #FF3333;">
+                    <tr>
+                        <td style="padding: 24px; text-align: center;">
+                            <img src="{{PRODUCT_IMAGE}}" alt="{{PRODUCT_NAME}}" style="width: 120px; height: 120px; border-radius: 12px; object-fit: cover; border: 4px solid #FFFFFF; box-shadow: 0 4px 16px rgba(0,0,0,0.3); display: block; margin: 0 auto;" onerror="this.style.display='none';">
+                            <div style="background: rgba(0,0,0,0.85); color: #FFFFFF; padding: 10px 16px; border-radius: 8px; font-size: 16px; font-weight: bold; margin-top: 16px; display: inline-block; box-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+                                {{FILIPINO_NAME}}
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                
+                <!-- Content Section -->
+                <table role="presentation" style="width: 100%; background: #1a1a1a;">
+                    <tr>
+                        <td style="padding: 24px; text-align: center;">
+                            <div style="font-size: 15px; color: #CCCCCC; margin-bottom: 20px; line-height: 1.5;">
+                                Don't miss out on this exclusive price drop! Get the freshest {{FILIPINO_NAME}} at an unbeatable price. 
+                                This limited-time offer won't last long - secure your savings now!
+                            </div>
+                            
+                            <!-- Price Card -->
+                            <table role="presentation" style="width: 100%; background: linear-gradient(135deg, #2A2A2A 0%, #1E1E1E 100%); border: 2px solid #2D5016; border-radius: 12px; margin: 20px 0;">
+                                <tr>
+                                    <td>
+                                        <!-- Price Card Header Bar -->
+                                        <div style="height: 3px; background: linear-gradient(90deg, #FF3333, #2D5016, #FF3333); margin-bottom: 20px;"></div>
+                                        
+                                        <!-- Product Details -->
+                                        <div style="padding: 0 20px 20px 20px; text-align: center;">
+                                            <div style="margin-bottom: 20px;">
+                                                <div style="font-size: 22px; font-weight: bold; color: #FFFFFF; margin-bottom: 6px;">{{FILIPINO_NAME}}</div>
+                                                <div style="font-size: 14px; color: #888; margin-bottom: 16px;">{{PRODUCT_NAME}}</div>
+                                            </div>
+                                            
+                                            <!-- Price Comparison -->
+                                            <table role="presentation" style="width: 100%; margin: 16px 0;">
+                                                <tr>
+                                                    <td style="padding: 12px; text-align: center; width: 40%;">
+                                                        <div style="font-size: 12px; color: #888; text-transform: uppercase; font-weight: bold; margin-bottom: 4px;">Before</div>
+                                                        <div style="font-size: 18px; color: #888; text-decoration: line-through; font-weight: bold;">{{OLD_PRICE}}/{{UNIT}}</div>
+                                                    </td>
+                                                    <td style="padding: 12px; text-align: center; width: 20%;">
+                                                        <div style="font-size: 18px; color: #666; font-weight: bold;">→</div>
+                                                    </td>
+                                                    <td style="padding: 12px; text-align: center; width: 40%;">
+                                                        <div style="font-size: 12px; color: #75A347; text-transform: uppercase; font-weight: bold; margin-bottom: 4px;">Now</div>
+                                                        <div style="font-size: 26px; color: #75A347; font-weight: bold;">{{NEW_PRICE}}/{{UNIT}}</div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            
+                                            <!-- Savings Badge -->
+                                            <div style="background: #FF3333; color: #FFFFFF; padding: 10px 20px; border-radius: 25px; font-size: 14px; font-weight: bold; text-align: center; margin: 20px auto; display: inline-block; box-shadow: 0 4px 12px rgba(255, 51, 51, 0.3); text-transform: uppercase; letter-spacing: 0.5px;">
+                                                {{PRICE_CHANGE_ICON}} YOU SAVE {{PRICE_CHANGE}} ({{PRICE_CHANGE_PERCENT}}% OFF)
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                            <!-- CTA Section -->
+                            <table role="presentation" style="width: 100%; background: #2D5016; border-radius: 8px; margin: 20px 0;">
+                                <tr>
+                                    <td style="padding: 20px; text-align: center;">
+                                        <div style="color: #FFFFFF; font-size: 14px; margin-bottom: 16px; line-height: 1.5;">
+                                            {{ALERT_MESSAGE}}<br>
+                                            Visit our market portal to explore more deals and manage your price alerts.
+                                        </div>
+                                        <a href="http://localhost/farmscout_online/market-finder.php" style="background: #FF3333; color: #FFFFFF; padding: 14px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block; box-shadow: 0 4px 16px rgba(255, 51, 51, 0.3);" class="no-underline">
+                                            BROWSE MORE DEALS
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+                
+                <!-- Footer -->
+                <table role="presentation" style="width: 100%; background: #0F0F0F; border-top: 1px solid #333;">
+                    <tr>
+                        <td style="padding: 20px; text-align: center;">
+                            <div style="font-size: 16px; font-weight: bold; color: #FFFFFF; margin-bottom: 4px;">FARMSCOUT</div>
+                            <div style="font-size: 10px; color: #888; margin-bottom: 16px;">Tapat na Presyo</div>
+                            
+                            <div style="font-size: 12px; color: #666; line-height: 1.6;">
+                                <div style="margin: 12px 0;">
+                                    Sent to {{EMAIL}}
+                                </div>
+                                
+                                <div style="margin: 12px 0;">
+                                    <a href="http://localhost/farmscout_online" style="color: #75A347; text-decoration: none; margin: 0 8px; font-weight: bold;">Visit FarmScout</a> |
+                                    <a href="http://localhost/farmscout_online/price-alerts.php" style="color: #75A347; text-decoration: none; margin: 0 8px; font-weight: bold;">Manage Alerts</a> |
+                                    <a href="mailto:support@farmscout.com" style="color: #75A347; text-decoration: none; margin: 0 8px; font-weight: bold;">Contact Support</a>
+                                </div>
+                                
+                                <div style="margin-top: 16px; padding-top: 12px; border-top: 1px solid #333;">
+                                    &copy; {{CURRENT_YEAR}} FarmScout Online. All rights reserved.<br>
+                                    Baloan Public Market Digital Platform
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

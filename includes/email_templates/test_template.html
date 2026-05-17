@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="x-apple-disable-message-reformatting">
+    <title>FarmScout Email Test</title>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Client-specific Styles */
+        #outlook a { padding: 0; }
+        .ReadMsgBody { width: 100%; }
+        .ExternalClass { width: 100%; }
+        .ExternalClass * { line-height: 100%; }
+        
+        /* Reset */
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            background-color: #f4f6fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        table {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+        
+        td {
+            border-collapse: collapse;
+            mso-line-height-rule: exactly;
+        }
+        
+        img {
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+            -ms-interpolation-mode: bicubic;
+        }
+        
+        /* Main Styles */
+        .email-wrapper {
+            width: 100% !important;
+            background-color: #f4f6fa;
+            padding: 20px 0;
+        }
+        
+        .email-container {
+            max-width: 680px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            padding: 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .header-content {
+            padding: 40px 30px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .test-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+            display: block;
+        }
+        
+        .logo-text {
+            font-size: 32px;
+            font-weight: 900;
+            color: #ffffff;
+            margin: 0 0 8px 0;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tagline {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 0 0 20px 0;
+            font-weight: 500;
+        }
+        
+        .test-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            color: #ffffff;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Content Styles */
+        .main-content {
+            padding: 50px 40px;
+        }
+        
+        .test-message {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .test-message h2 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 16px;
+        }
+        
+        .test-message p {
+            font-size: 18px;
+            color: #4b5563;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        /* Success Badge */
+        .success-badge {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border: 1px solid #10b981;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            margin: 32px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .success-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #10b981, #059669);
+        }
+        
+        .success-badge h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #065f46;
+            margin-bottom: 8px;
+        }
+        
+        .success-badge p {
+            font-size: 16px;
+            color: #065f46;
+            margin: 0;
+        }
+        
+        /* Test Details Table */
+        .test-table {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            margin: 32px 0;
+        }
+        
+        .test-row {
+            background: #ffffff;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .test-row:last-child {
+            border-bottom: none;
+        }
+        
+        .test-row td {
+            padding: 16px 20px;
+        }
+        
+        .test-label {
+            font-size: 15px;
+            font-weight: 600;
+            color: #374151;
+        }
+        
+        .test-value {
+            font-size: 15px;
+            color: #6b7280;
+            text-align: right;
+        }
+        
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 40px 30px;
+            text-align: center;
+            border-top: 1px solid #e5e7eb;
+        }
+        
+        .footer-content {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #16a34a;
+            margin-bottom: 8px;
+        }
+        
+        .footer-description {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+        
+        .footer-links {
+            margin: 16px 0;
+        }
+        
+        .footer-links a {
+            color: #16a34a;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin: 0 8px;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-copyright {
+            font-size: 12px;
+            color: #9ca3af;
+            margin-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 16px;
+        }
+        
+        /* Mobile Responsiveness */
+        @media only screen and (max-width: 640px) {
+            .email-container {
+                margin: 0 10px;
+                border-radius: 12px;
+            }
+            
+            .header-content {
+                padding: 30px 20px;
+            }
+            
+            .logo-text {
+                font-size: 26px;
+            }
+            
+            .main-content {
+                padding: 30px 20px;
+            }
+            
+            .test-message h2 {
+                font-size: 24px;
+            }
+            
+            .test-row td {
+                padding: 12px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-wrapper">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td align="center">
+                    <div class="email-container">
+                        <!-- Header -->
+                        <div class="header">
+                            <div class="header-content">
+                                <div class="test-icon">✅</div>
+                                <h1 class="logo-text">FARMSCOUT</h1>
+                                <p class="tagline">Tapat na Presyo</p>
+                                <div class="test-badge">
+                                    Email System Test
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Main Content -->
+                        <div class="main-content">
+                            <!-- Test Message -->
+                            <div class="test-message">
+                                <h2>Email System Status: Working! 🎉</h2>
+                                <p>This is a test email to verify that your FarmScout Online email system is configured correctly and working as expected.</p>
+                            </div>
+                            
+                            <!-- Success Badge -->
+                            <div class="success-badge">
+                                <h3>✓ Test Successful</h3>
+                                <p>Your email configuration is working perfectly!</p>
+                            </div>
+                            
+                            <!-- Test Details Table -->
+                            <table class="test-table" cellpadding="0" cellspacing="0" border="0">
+                                <tr class="test-row">
+                                    <td class="test-label">Test Timestamp:</td>
+                                    <td class="test-value">{{TIMESTAMP}}</td>
+                                </tr>
+                                <tr class="test-row">
+                                    <td class="test-label">Email Method:</td>
+                                    <td class="test-value">{{EMAIL_METHOD}}</td>
+                                </tr>
+                                <tr class="test-row">
+                                    <td class="test-label">Template Version:</td>
+                                    <td class="test-value">Modern v2.0</td>
+                                </tr>
+                                <tr class="test-row">
+                                    <td class="test-label">Status:</td>
+                                    <td class="test-value" style="color: #059669; font-weight: 600;">✓ Working</td>
+                                </tr>
+                            </table>
+                            
+                            <div style="text-align: center; color: #6b7280; font-size: 16px; line-height: 1.6; margin: 32px 0;">
+                                <p><strong>What's Next?</strong></p>
+                                <p>Your email system is now ready to send price alerts, welcome messages, and other notifications to your users.</p>
+                                <p style="margin-top: 24px;"><strong>Happy Marketing!<br>The FarmScout Team</strong></p>
+                            </div>
+                        </div>
+                        
+                        <!-- Footer -->
+                        <div class="footer">
+                            <div class="footer-content">
+                                <div class="footer-logo">FarmScout Online</div>
+                                <p class="footer-description">
+                                    Your trusted source for fresh farm products and transparent market prices
+                                </p>
+                                <div class="footer-links">
+                                    <a href="{{WEBSITE_URL}}">Visit Website</a>
+                                    <span style="color: #d1d5db;">•</span>
+                                    <a href="mailto:support@farmscout-online.com">Contact Support</a>
+                                </div>
+                                <div class="footer-copyright">
+                                    &copy; {{CURRENT_YEAR}} FarmScout Online. All rights reserved.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

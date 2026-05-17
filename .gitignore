@@ -1,0 +1,59 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Dependencies
+# node_modules/  # Uncomment to exclude node_modules
+vendor/
+
+# IDE / local tooling (not part of the deployed app)
+.idea/
+.vscode/
+.cursor/
+*.swp
+*.swo
+
+# Build files (keep package-lock.json in Git for reproducible installs)
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Database dumps with real credentials / user data (export locally only)
+database/farmscout_online.sql
+database/archive/local-backups/
+
+# Logs
+logs/*.log
+!logs/.gitkeep
+
+# Runtime cache (keep folder)
+storage/cache/*
+!storage/cache/.gitignore
+
+# Tests (optional - uncomment if you don't want to track test files)
+# tests/
+
+# Temporary files
+*.tmp
+*.temp
+tmp-thinkinggifts/
+
+# OS generated files
+*.DS_Store?
+ehthumbs.db
+Icon?
+desktop.ini
+node_modules
+
+# Large video files (GitHub has 50MB limit, 100MB hard limit)
+# Store videos locally or use cloud storage/CDN
+assets/video/*.mp4
+assets/video/*.mov
+assets/video/*.avi
+assets/video/*.mkv
+*.mp4
+*.mov
+*.avi
+*.mkv

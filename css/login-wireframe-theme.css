@@ -1,0 +1,23 @@
+/**
+ * Optional FarmScout “wireframe” look (thick borders, high contrast).
+ * Use: login.php?theme=wireframe
+ */
+body.login-theme-wireframe input[type="text"],
+body.login-theme-wireframe input[type="email"],
+body.login-theme-wireframe input[type="password"],
+body.login-theme-wireframe input[type="number"] {
+  border-width: 3px !important;
+}
+
+body.login-theme-wireframe button[type="submit"],
+body.login-theme-wireframe .bg-primary {
+  border-width: 3px !important;
+}
+
+body.login-theme-wireframe .border-2 {
+  border-width: 3px !important;
+}
+
+body.login-theme-wireframe .custom-font-title {
+  letter-spacing: 0.08em;
+}

@@ -1,0 +1,21 @@
+{
+  "name": "farmscout-app",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "postbuild": "node ../scripts/prune-vite-assets.mjs",
+    "build:watch": "vite build --watch",
+    "preview": "vite preview",
+    "prune:assets": "node ../scripts/prune-vite-assets.mjs"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0",
+    "leaflet": "^1.9.4"
+  },
+  "devDependencies": {
+    "vite": "^7.2.4"
+  }
+}

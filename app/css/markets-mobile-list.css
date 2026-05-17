@@ -1,0 +1,2070 @@
+/**
+ * Market Finder SPA — shared hub + desktop (≥769px) styles.
+ * Mobile hub UI: app/css/markets-mobile-hub.css when #mfMarketsMobileShell has .mf-mm-hub--mobile.
+ * Loaded from index.html.
+ */
+
+/* ── Hub shell: hidden until hub mode ── */
+.mf-markets-mobile {
+  display: none;
+}
+
+.mf-page.fs-markets-mobile--active .mf-markets-mobile {
+  display: block;
+}
+
+.mf-page.fs-markets-mobile--active .mf-layout--markets-hub,
+.mf-page.fs-markets-mobile--active .mf-category-carousel-host {
+  display: none !important;
+}
+
+/* Hub: hide cinematic hero whenever the list hub is active (desktop + mobile) */
+.mf-page.fs-markets-mobile--active .mf-zhero-wrap,
+.mf-page.fs-markets-mobile--active
+  section.mf-zhero-wrap[aria-label="Market Finder cinematic intro"] {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  pointer-events: none !important;
+}
+
+/* ── Hub “SELECT A MARKET” — height: content-sized on phone; full viewport min-height only in @media (min-width: 769px) ── */
+#page_content.fs-mf-markets-mobile-root {
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.mf-page.fs-markets-mobile--active {
+  display: block;
+}
+
+.mf-mm-hub {
+  width: 90%;
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 0.75rem 0 2.5rem;
+  box-sizing: border-box;
+}
+
+.mf-mm-head {
+  text-align: left;
+  margin: 0 0 1.25rem;
+}
+
+.mf-mm-head__title {
+  margin: 0 0 0.4rem;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: clamp(1.35rem, 3.5vw, 2rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #000;
+  line-height: 1.15;
+}
+
+.mf-mm-head__sub {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.mf-mm-list--hub {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.mf-mm-list__item {
+  margin: 0;
+}
+
+.mf-mm-list__item--empty {
+  flex: 0 0 auto;
+}
+
+.mf-mm-empty {
+  margin: 0;
+  text-align: left;
+  font-size: 0.9rem;
+  color: rgba(0, 0, 0, 0.55);
+  padding: 1.25rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+/* One full-width row per market */
+.mf-mm-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.35fr) auto;
+  gap: 1rem 1.5rem;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1.35rem 0;
+  text-decoration: none;
+  color: #000;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 0;
+  box-shadow: none;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  z-index: 0;
+}
+
+.mf-mm-row:hover {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.mf-mm-row:active {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.mf-mm-row:focus {
+  outline: none;
+}
+
+.mf-mm-row:focus-visible {
+  outline: 2px solid rgba(0, 0, 0, 0.35);
+  outline-offset: 2px;
+}
+
+.mf-mm-row__lead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.65rem 1rem;
+  min-width: 0;
+}
+
+.mf-mm-row__id {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+  color: rgba(0, 0, 0, 0.62);
+  flex-shrink: 0;
+}
+
+.mf-mm-row__name {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: clamp(1.65rem, 4.2vw, 2.65rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  min-width: 0;
+  color: #000;
+}
+
+.mf-mm-row__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  justify-content: center;
+  min-width: 0;
+}
+
+.mf-mm-row__addr,
+.mf-mm-row__hours {
+  display: block;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: rgba(0, 0, 0, 0.62);
+}
+
+.mf-mm-row__stat {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.65rem;
+  flex-shrink: 0;
+}
+
+.mf-mm-row__stat-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+}
+
+.mf-mm-row__stat-val {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.mf-mm-row__stat-lbl {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.mf-mm-row__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.mf-mm-row__arrow-svg {
+  display: block;
+  vertical-align: middle;
+}
+
+.mf-mm-status {
+  margin: 1rem 0 0;
+  padding-bottom: env(safe-area-inset-bottom, 0);
+  text-align: center;
+  font-size: 0.875rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.mf-mm-status--err {
+  color: #8b0000;
+}
+
+/* Desktop: full viewport + equal-height hub rows (does not touch mobile layout) */
+@media (min-width: 769px) {
+  #page_content.fs-mf-markets-mobile-root {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    height: auto !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+
+  .mf-page.fs-markets-mobile--active {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    min-height: min(100vh, 100dvh) !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .mf-page.fs-markets-mobile--active .mf-mm-hub {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 1rem clamp(1rem, 4vw, 2.75rem) 0;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .mf-page.fs-markets-mobile--active .mf-mm-head {
+    flex-shrink: 0 !important;
+  }
+
+  .mf-page.fs-markets-mobile--active .mf-mm-list--hub {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .mf-page.fs-markets-mobile--active .mf-mm-list__item--stretch {
+    flex: 1 1 0 !important;
+    min-height: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .mf-page.fs-markets-mobile--active .mf-mm-list__item--stretch > .mf-mm-row {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    height: 100% !important;
+    align-items: center !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+  .mf-page.fs-markets-mobile--active .mf-mm-list__item--empty {
+    flex: 0 0 auto !important;
+  }
+
+  .mf-page.fs-markets-mobile--active .mf-mm-status {
+    flex-shrink: 0 !important;
+    margin-top: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Market detail on phone: no 3D carousel (desktop only) — wireframe list replaces it */
+  .mf-page:not(.fs-markets-mobile--active) .mf-layout--markets-hub {
+    display: none !important;
+  }
+
+  /* SPA main — mobile hub: block flow, old centered column (no desktop flex stretch) */
+  #page_content.fs-mf-markets-mobile-root {
+    display: block !important;
+    align-items: unset !important;
+    justify-content: unset !important;
+    height: auto !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+
+  .mf-page.fs-markets-mobile--active {
+    display: block !important;
+    min-height: 0 !important;
+    flex: none !important;
+  }
+
+  /* Mobile hub list/categories/products: app/css/markets-mobile-hub.css + .mf-mm-hub--mobile on #mfMarketsMobileShell */
+
+  /* ── Page shell: no horizontal scroll, app-like column ── */
+  .mf-page {
+    overflow-x: hidden !important;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    background: #fff !important;
+    flex: 1 0 auto;
+  }
+
+  /* Cinematic hero off on phones — hub uses SELECT A MARKET */
+  section.mf-zhero-wrap[aria-label="Market Finder cinematic intro"],
+  .mf-page .mf-zhero-wrap {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    pointer-events: none !important;
+  }
+
+  #mfZHeroLineMarket,
+  #mfZHeroLineFinder {
+    font-size: clamp(2rem, 11vw, 3.25rem) !important;
+    line-height: 0.95 !important;
+  }
+
+  /* ── Category / carousel host: clip overflow ── */
+  .mf-page .mf-category-carousel-host,
+  .mf-page .mf-cat-stage,
+  .mf-page #mfParallaxViewport {
+    overflow-x: hidden !important;
+    max-width: 100%;
+  }
+
+  /* ── Product grid (#category-products) wireframe cards ── */
+  .mf-page #category-products {
+    overflow-x: hidden !important;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .mf-page #category-products .cp-products-head,
+  .mf-page #category-products .cp-category-head {
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .mf-page #cpProductsGrid,
+  .mf-page .cp-products-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 1rem !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 5% 2rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .mf-page .cp-product-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    border: 3px solid #000 !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    overflow: hidden;
+  }
+
+  .mf-page .cp-product-image-wrap {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    border: none !important;
+    border-bottom: 2px solid #000 !important;
+    border-radius: 0 !important;
+    aspect-ratio: 4 / 3;
+    background: #f5f5f5;
+  }
+
+  .mf-page .cp-product-image-wrap img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+
+  .mf-page .cp-product-card > div:last-child,
+  .mf-page .cp-product-card .cp-product-body-wrap {
+    padding: 1rem !important;
+    box-sizing: border-box !important;
+  }
+
+  .mf-page .cp-product-title {
+    font-family: Inter, system-ui, sans-serif !important;
+    font-size: 1.05rem !important;
+    font-weight: 800 !important;
+    margin: 0 0 0.5rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .mf-page .cp-product-desc {
+    font-size: 0.875rem !important;
+    line-height: 1.45 !important;
+    color: rgba(0, 0, 0, 0.68) !important;
+    margin: 0 0 0.65rem !important;
+  }
+
+  .mf-page .cp-product-price {
+    font-size: 1.05rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 0.25rem !important;
+  }
+
+  .mf-page .cp-product-unit {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.65rem !important;
+  }
+
+  .mf-page .cp-divider {
+    border-color: #000 !important;
+    margin: 0.75rem 0 !important;
+  }
+
+  .mf-page .cp-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    margin-top: 0.75rem !important;
+  }
+
+  .mf-page .cp-btn {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    justify-content: center !important;
+    text-align: center !important;
+    border-radius: 0 !important;
+    border-width: 2px !important;
+    padding: 0.7rem 1rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  .mf-page .cp-search-row {
+    width: 90% !important;
+    max-width: 28rem !important;
+    margin: 0 auto 1rem !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+
+  .mf-page .cp-search-row input {
+    width: 100% !important;
+    border: 2px solid #000 !important;
+    border-radius: 0 !important;
+  }
+
+  .mf-page .cp-search-row button,
+  .mf-page #cpClearBtn,
+  .mf-page .cp-clear-btn {
+    width: 100% !important;
+    border: 2px solid #000 !important;
+    border-radius: 0 !important;
+  }
+
+  /* ── Fullscreen product slider (mf-osmo) ── */
+  .mf-page #mfCategorySliderSection.is-open .mf-osmo-prod-card,
+  .mf-page #mfHubOsmoRoot.is-open .mf-osmo-prod-card {
+    border: 3px solid #000 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .mf-page #mfCategorySliderSection .mf-osmo-prod-media,
+  .mf-page #mfCategorySliderSection .mf-osmo-prod-media img,
+  .mf-page #mfHubOsmoRoot .mf-osmo-prod-media,
+  .mf-page #mfHubOsmoRoot .mf-osmo-prod-media img {
+    max-width: 100% !important;
+  }
+
+  .mf-page #mfCategorySliderSection .mf-osmo-prod-actions,
+  .mf-page #mfHubOsmoRoot .mf-osmo-prod-actions {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+
+  .mf-page #mfCategorySliderSection .mf-osmo-prod-btn,
+  .mf-page #mfHubOsmoRoot .mf-osmo-prod-btn {
+    width: 100% !important;
+    border-radius: 0 !important;
+    border-width: 2px !important;
+  }
+
+  .mf-page .fs-nav {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* ── Market hub (#mfMarketsMobileShell): stacked, full-width mobile layout.
+     Does not depend on .fs-markets-mobile--active (fixes cramped grid when JS/CSS order lags). ── */
+  #mfMarketsMobileShell.mf-mm-hub {
+    width: 100%;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(0.65rem, 3.5vw, 1rem);
+    padding-right: clamp(0.65rem, 3.5vw, 1rem);
+    box-sizing: border-box;
+  }
+
+  #mfMarketsMobileShell #mfHubCategoryGrid.mf-mm-hub-category-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  #mfMarketsMobileShell .mf-mm-list--hub {
+    border-top: none;
+  }
+
+  #mfMarketsMobileShell .mf-mm-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.45rem;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 0.95rem 0.85rem !important;
+    margin: 0 0 0.75rem !important;
+    border: 3px solid #000 !important;
+    border-radius: 0 !important;
+    border-bottom: 3px solid #000 !important;
+    background: #fff !important;
+    box-shadow: 4px 4px 0 #000;
+    min-height: 0;
+  }
+
+  #mfMarketsMobileShell .mf-mm-row__arrow {
+    display: none !important;
+  }
+
+  #mfMarketsMobileShell .mf-mm-row__lead {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    flex-wrap: nowrap !important;
+    gap: 0.2rem !important;
+    width: 100%;
+    min-width: 0;
+  }
+
+  #mfMarketsMobileShell .mf-mm-row__name {
+    line-height: 1.12 !important;
+    word-break: break-word;
+  }
+
+  #mfMarketsMobileShell .mf-mm-row__meta {
+    width: 100%;
+    min-width: 0;
+  }
+
+  #mfMarketsMobileShell .mf-mm-row__stat {
+    width: 100% !important;
+    justify-content: flex-start !important;
+    align-self: stretch;
+    padding-top: 0.6rem !important;
+    margin-top: 0.35rem !important;
+    border-top: 2px solid rgba(0, 0, 0, 0.2) !important;
+  }
+
+  #mfMarketsMobileShell .mf-mm-row__stat-inner {
+    flex-direction: row !important;
+    align-items: baseline !important;
+    gap: 0.5rem !important;
+  }
+
+  /* Products panel: must respect [hidden] — display:flex would override UA display:none and leak the panel */
+  #mfMarketsMobileShell #mfHubProductsPanel[hidden] {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  /* Products panel chrome: back button, count bar, headings, search (only when panel is visible) */
+  #mfMarketsMobileShell #mfHubProductsPanel:not([hidden]) {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* Space below category grid / last category card — was flush against “← Categories” */
+    margin-top: clamp(1.35rem, 4vw, 2rem);
+    padding-top: 0.5rem;
+    box-sizing: border-box;
+  }
+
+  /* Extra separation when panel follows the category block (same section) */
+  #mfMarketsMobileShell #mfHubCategoriesBlock + #mfHubProductsPanel:not([hidden]) {
+    margin-top: clamp(1.5rem, 5vw, 2.25rem);
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-back--secondary,
+  #mfMarketsMobileShell #mfHubProductsPanel #mfHubBackCategories {
+    -webkit-appearance: none;
+    appearance: none;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 0.15rem !important;
+    padding: 0.85rem 1.15rem !important;
+    min-height: 52px;
+    font-family: "VT323", ui-monospace, monospace !important;
+    font-size: 1.05rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase;
+    text-align: center;
+    color: #000 !important;
+    background: #fff !important;
+    border: 4px solid #000 !important;
+    border-radius: 0 !important;
+    box-shadow: 4px 4px 0 #000;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-back--secondary:active,
+  #mfMarketsMobileShell #mfHubProductsPanel #mfHubBackCategories:active {
+    background: #000 !important;
+    color: #fff !important;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel #mfHubProductsCountBar {
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    padding: 0.85rem 1rem !important;
+    margin: 0 !important;
+    border: 3px solid #000 !important;
+    background: #fafafa !important;
+    box-sizing: border-box;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel #mfHubProductsCountBar .mf-mm-hub-products-countbar__head {
+    font-family: "VT323", ui-monospace, monospace !important;
+    font-size: clamp(1.1rem, 3.5vw, 1.5rem) !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase;
+    line-height: 1.15;
+    color: #000;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel #mfHubProductsCountBar .mf-mm-hub-products-countbar__sub {
+    font-family: "VT323", ui-monospace, monospace !important;
+    font-size: 0.95rem !important;
+    color: #000;
+    opacity: 0.72;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-legacy-title {
+    margin: 0.15rem 0 0.2rem !important;
+    font-family: "VT323", ui-monospace, monospace !important;
+    font-size: clamp(1.45rem, 5vw, 2rem) !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase;
+    color: #000;
+    line-height: 1.1;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-legacy-sub {
+    margin: 0 0 0.35rem !important;
+    font-family: "VT323", ui-monospace, monospace !important;
+    font-size: 0.95rem !important;
+    line-height: 1.4 !important;
+    color: #000 !important;
+    opacity: 0.72 !important;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-products-search {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: stretch !important;
+    gap: 0.65rem !important;
+    margin: 0.5rem 0 1.35rem !important;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-legacy-input {
+    flex: 1 1 160px !important;
+    min-width: 0 !important;
+    width: auto !important;
+    min-height: 50px !important;
+    padding: 0.65rem 0.85rem !important;
+    box-sizing: border-box !important;
+    font-family: "VT323", ui-monospace, monospace !important;
+    font-size: 1rem !important;
+    border: 3px solid #000 !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-legacy-clear {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    min-width: 5.75rem !important;
+    min-height: 50px !important;
+    padding: 0.65rem 1rem !important;
+    box-sizing: border-box !important;
+    font-family: "VT323", ui-monospace, monospace !important;
+    font-size: 0.95rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    border: 3px solid #000 !important;
+    border-radius: 0 !important;
+    background: #fff !important;
+    color: #000 !important;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 #000;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-legacy-clear:active {
+    background: #000 !important;
+    color: #fff !important;
+  }
+
+  /* Hub product cards — pixel-match market-finder.php (.product-card … .product-actions) */
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-products-grid-legacy {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    margin: 0 !important;
+    padding: 0.35rem 0 1rem !important;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-product-card {
+    position: relative;
+    box-sizing: border-box;
+    padding: 1rem !important;
+    overflow: visible;
+    border: 4px solid #000 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-product-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    transform: translateY(-2px);
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-media {
+    position: relative;
+    width: 100%;
+    margin: 0 !important;
+    overflow: visible;
+    background: transparent;
+    border: 0;
+    height: auto;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-alert-btn {
+    position: absolute !important;
+    top: 0.75rem !important;
+    right: 0.75rem !important;
+    z-index: 10;
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 2px solid #000 !important;
+    background: #fff !important;
+    box-shadow: none;
+    padding: 0 !important;
+    cursor: pointer;
+    opacity: 1;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-alert-btn svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-alert-btn:active {
+    background: #000 !important;
+    color: #fff !important;
+  }
+
+  /* Same as .product-image — market-finder.php (768px: 160px tall) */
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-image {
+    width: 100% !important;
+    height: 160px !important;
+    object-fit: cover !important;
+    object-position: center;
+    display: block !important;
+    box-sizing: border-box !important;
+    border: 2px solid #000 !important;
+    margin: 0 0 1rem !important;
+    background-color: #f0f0f0 !important;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-body {
+    padding: 0 !important;
+    box-sizing: border-box;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-name {
+    font-family: "VT323", ui-monospace, monospace !important;
+    font-weight: 700 !important;
+    font-size: 1.2rem !important;
+    letter-spacing: 0.05em !important;
+    line-height: 1.2 !important;
+    text-transform: uppercase;
+    margin: 0 0 0.5rem !important;
+    color: #000;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-desc {
+    font-family: "VT323", ui-monospace, monospace !important;
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+    color: #000 !important;
+    opacity: 0.6 !important;
+    margin: 0 0 0.75rem !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-price {
+    font-family: "VT323", ui-monospace, monospace !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    margin: 0 0 0.25rem !important;
+    color: #000;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-unit {
+    font-family: "VT323", ui-monospace, monospace !important;
+    font-size: 0.9rem !important;
+    opacity: 0.7;
+    color: #000 !important;
+    margin: 0 0 0.75rem !important;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .product-unit-options {
+    margin: 0 0 1rem !important;
+    padding: 0.5rem 0 0 !important;
+    border-top: 2px solid #000 !important;
+    background: #fff;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .product-unit-options-title {
+    font-family: "VT323", ui-monospace, monospace !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    margin: 0 0 0.5rem !important;
+    color: #000 !important;
+    opacity: 0.7 !important;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .product-unit-options-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .product-unit-option,
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-chip {
+    display: inline-block !important;
+    padding: 0.4rem 0.6rem !important;
+    min-height: 36px !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    border: 2px solid #000 !important;
+    background: #000 !important;
+    color: #fff !important;
+    font-family: "VT323", ui-monospace, monospace !important;
+    font-size: 0.75rem !important;
+    font-weight: 400 !important;
+    line-height: 1.2;
+    border-radius: 0 !important;
+  }
+
+  /* .product-actions — no extra top border (only .product-unit-options has border-top) */
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-actions {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.75rem !important;
+    margin: 0.75rem 0 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-reserve,
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-history {
+    width: 100% !important;
+    margin: 0 !important;
+    min-height: 44px !important;
+    padding: 0.75rem 1rem !important;
+    border: 4px solid #000 !important;
+    background: #fff !important;
+    color: #000 !important;
+    font-family: "VT323", ui-monospace, monospace !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    cursor: pointer;
+    border-radius: 0 !important;
+    text-align: center !important;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-reserve:hover,
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-history:hover {
+    background: #000 !important;
+    color: #fff !important;
+  }
+
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-reserve:active,
+  #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-history:active {
+    background: #000 !important;
+    color: #fff !important;
+  }
+
+  /* market-finder.php @media (max-width: 480px) — tighter card, single-column actions */
+  @media (max-width: 480px) {
+    #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-product-card {
+      padding: 0.9rem !important;
+      border-width: 3px !important;
+    }
+
+    #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-image {
+      height: 140px !important;
+    }
+
+    #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-name {
+      font-size: 1.1rem !important;
+    }
+
+    #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-price {
+      font-size: 1rem !important;
+    }
+
+    #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-alert-btn {
+      width: 32px !important;
+      height: 32px !important;
+    }
+
+    #mfMarketsMobileShell #mfHubProductsPanel .mf-mm-prod-actions {
+      grid-template-columns: 1fr !important;
+      gap: 0.5rem !important;
+    }
+  }
+
+  /* Wire-detail products view (?market=): same spacing + chrome as hub */
+  #mfMobileWireDetail #mfMobileProductsPane {
+    display: flex !important;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 0.35rem;
+    box-sizing: border-box;
+  }
+
+  #mfMobileWireDetail #mfMobileProductsPane .mf-mm-back--secondary {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 0.15rem !important;
+    padding: 0.85rem 1.15rem !important;
+    min-height: 52px;
+    font-family: "VT323", ui-monospace, monospace !important;
+    font-size: 1.05rem !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase;
+    text-align: center;
+    border: 4px solid #000 !important;
+    background: #fff !important;
+    box-shadow: 4px 4px 0 #000;
+    cursor: pointer;
+  }
+
+  #mfMobileWireDetail #mfMobileProductsPane .mf-mm-products-search {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 0.65rem !important;
+    margin: 0.35rem 0 1.35rem !important;
+  }
+
+  #mfMobileWireDetail #mfMobileProductsPane .mf-mm-legacy-input {
+    flex: 1 1 160px !important;
+    min-width: 0 !important;
+    min-height: 50px !important;
+    padding: 0.65rem 0.85rem !important;
+    border: 3px solid #000 !important;
+    font-family: "VT323", ui-monospace, monospace !important;
+  }
+
+  #mfMobileWireDetail #mfMobileProductsPane .mf-mm-legacy-clear {
+    flex: 0 0 auto !important;
+    min-width: 5.75rem !important;
+    min-height: 50px !important;
+    padding: 0.65rem 1rem !important;
+    border: 3px solid #000 !important;
+    box-shadow: 3px 3px 0 #000;
+    font-family: "VT323", ui-monospace, monospace !important;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  #mfMobileWireDetail #mfMobileProductsWrap {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    padding: 0.35rem 0 1rem !important;
+  }
+
+  /* Wire-detail products pane — same rules as #mfHubProductsPanel / market-finder.php */
+  #mfMobileWireDetail #mfMobileProductsWrap .mf-mm-product-card {
+    position: relative;
+    padding: 1rem !important;
+    overflow: visible;
+    border: 4px solid #000 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+
+  #mfMobileWireDetail #mfMobileProductsWrap .mf-mm-prod-media {
+    position: relative;
+    height: auto !important;
+    margin: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+  }
+
+  #mfMobileWireDetail #mfMobileProductsWrap .mf-mm-prod-alert-btn {
+    position: absolute !important;
+    top: 0.75rem !important;
+    right: 0.75rem !important;
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 50% !important;
+    border-width: 2px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 10 !important;
+  }
+
+  #mfMobileWireDetail #mfMobileProductsWrap .mf-mm-prod-image {
+    width: 100% !important;
+    height: 160px !important;
+    border: 2px solid #000 !important;
+    object-fit: cover !important;
+    margin: 0 0 1rem !important;
+    background-color: #f0f0f0 !important;
+    box-sizing: border-box !important;
+  }
+
+  #mfMobileWireDetail #mfMobileProductsWrap .mf-mm-prod-body {
+    padding: 0 !important;
+  }
+
+  #mfMobileWireDetail #mfMobileProductsWrap .mf-mm-prod-name {
+    font-family: "VT323", ui-monospace, monospace !important;
+    font-size: 1.2rem !important;
+    font-weight: 700 !important;
+    margin: 0 0 0.5rem !important;
+    text-transform: uppercase;
+  }
+
+  #mfMobileWireDetail #mfMobileProductsWrap .mf-mm-prod-desc {
+    font-family: "VT323", ui-monospace, monospace !important;
+    font-size: 0.85rem !important;
+    line-height: 1.4 !important;
+    opacity: 0.6 !important;
+    margin: 0 0 0.75rem !important;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  #mfMobileWireDetail #mfMobileProductsWrap .mf-mm-prod-price {
+    font-size: 1.1rem !important;
+    margin: 0 0 0.25rem !important;
+  }
+
+  #mfMobileWireDetail #mfMobileProductsWrap .mf-mm-prod-unit {
+    font-family: "VT323", ui-monospace, monospace !important;
+    font-size: 0.9rem !important;
+    opacity: 0.7 !important;
+    margin: 0 0 0.75rem !important;
+  }
+
+  #mfMobileWireDetail #mfMobileProductsWrap .product-unit-options {
+    margin: 0 0 1rem !important;
+    padding: 0.5rem 0 0 !important;
+    border-top: 2px solid #000 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  #mfMobileWireDetail #mfMobileProductsWrap .product-unit-options-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  #mfMobileWireDetail #mfMobileProductsWrap .product-unit-option {
+    padding: 0.4rem 0.6rem !important;
+    min-height: 36px !important;
+    font-family: "VT323", ui-monospace, monospace !important;
+    font-size: 0.75rem !important;
+    background: #000 !important;
+    color: #fff !important;
+    border: 2px solid #000 !important;
+  }
+
+  #mfMobileWireDetail #mfMobileProductsWrap .mf-mm-prod-actions {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.75rem !important;
+    margin: 0.75rem 0 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+  }
+
+  #mfMobileWireDetail #mfMobileProductsWrap .mf-mm-prod-reserve,
+  #mfMobileWireDetail #mfMobileProductsWrap .mf-mm-prod-history {
+    width: 100% !important;
+    min-height: 44px !important;
+    padding: 0.75rem 1rem !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+  }
+
+  @media (max-width: 480px) {
+    #mfMobileWireDetail #mfMobileProductsWrap .mf-mm-product-card {
+      padding: 0.9rem !important;
+      border-width: 3px !important;
+    }
+
+    #mfMobileWireDetail #mfMobileProductsWrap .mf-mm-prod-image {
+      height: 140px !important;
+    }
+
+    #mfMobileWireDetail #mfMobileProductsWrap .mf-mm-prod-name {
+      font-size: 1.1rem !important;
+    }
+
+    #mfMobileWireDetail #mfMobileProductsWrap .mf-mm-prod-price {
+      font-size: 1rem !important;
+    }
+
+    #mfMobileWireDetail #mfMobileProductsWrap .mf-mm-prod-alert-btn {
+      width: 32px !important;
+      height: 32px !important;
+    }
+
+    #mfMobileWireDetail #mfMobileProductsWrap .mf-mm-prod-actions {
+      grid-template-columns: 1fr !important;
+      gap: 0.5rem !important;
+    }
+  }
+
+  /* Osmo fullscreen slider (desktop path / large images): cap media on narrow screens */
+  .mf-page #mfHubOsmoRoot .mf-osmo-prod-media--wrap,
+  .mf-page #mfHubOsmoRoot .mf-osmo-prod-media {
+    max-height: min(48vh, 280px) !important;
+    overflow: hidden !important;
+  }
+
+  .mf-page #mfHubOsmoRoot .mf-osmo-prod-image {
+    width: 100% !important;
+    max-height: min(48vh, 280px) !important;
+    object-fit: cover !important;
+    object-position: center;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Market selected (?market=id): categories + products — all viewports
+   (styles were previously only inside max-width:768; desktop needs them too)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.mf-page.fs-mf-market-detail-active .mf-zhero-wrap {
+  display: none !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  pointer-events: none !important;
+}
+
+.mf-page.fs-mf-market-detail-active #mfMarketsMobileShell,
+.mf-page.fs-mf-market-detail-active .mf-layout--markets-hub {
+  display: none !important;
+}
+
+#mfMobileWireDetail.mf-mm-detail {
+  width: 90%;
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: 0.5rem 0 2.5rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 769px) {
+  #mfMobileWireDetail.mf-mm-detail {
+    max-width: 1100px;
+    width: 96%;
+    padding: 1rem 0 3rem;
+  }
+}
+
+#mfMobileWireDetail .mf-mm-back {
+  display: inline-block;
+  margin: 0 0 1rem;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #000;
+  text-decoration: none;
+  border: 2px solid #000;
+  padding: 0.5rem 0.75rem;
+  background: #fff;
+}
+
+#mfMobileWireDetail .mf-mm-back:active {
+  background: #000;
+  color: #fff;
+}
+
+#mfMobileWireDetail .mf-mm-back--secondary {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  font: inherit;
+}
+
+#mfMobileWireDetail .mf-mm-cat-eyebrow {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+  color: #000;
+  opacity: 0.55;
+}
+
+#mfMobileWireDetail .mf-mm-market-heading {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: clamp(1.65rem, 4.5vw, 2.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+  color: #000;
+}
+
+#mfMobileWireDetail .mf-mm-market-sub {
+  margin-bottom: 1.75rem !important;
+}
+
+#mfMobileWireDetail.mf-mm-detail--legacy .mf-mm-legacy-title {
+  font-family: "VT323", ui-monospace, monospace;
+  font-size: clamp(2rem, 9vw, 2.75rem);
+  letter-spacing: 0.08em;
+  margin: 0 0 0.35rem;
+  font-weight: 400;
+  color: #000;
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+
+#mfMobileWireDetail.mf-mm-detail--legacy .mf-mm-legacy-sub {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 1rem;
+  opacity: 0.72;
+  margin: 0 0 1.5rem;
+  color: #000;
+}
+
+#mfMobileWireDetail .mf-mm-category-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#mfMobileWireDetail .mf-mm-category-grid--mosaic {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  #mfMobileWireDetail .mf-mm-category-grid--mosaic {
+    grid-template-columns: 1fr 1fr 2fr 2fr;
+    align-items: stretch;
+  }
+
+  #mfMobileWireDetail .mf-mm-category-grid--mosaic .mf-mm-category-card:nth-child(-n + 4) {
+    min-height: 11rem;
+  }
+
+  #mfMobileWireDetail .mf-mm-category-grid--mosaic .mf-mm-category-card:nth-child(n + 5) {
+    grid-column: span 2;
+    min-height: 9.5rem;
+  }
+
+  #mfMobileWireDetail .mf-mm-category-grid--mosaic .mf-mm-category-card:nth-child(n + 7) {
+    grid-column: 1 / -1;
+  }
+}
+
+#mfMobileWireDetail .mf-mm-category-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1.35rem 1.25rem 1.15rem;
+  text-align: left;
+  background: #fff;
+  border: 4px solid #000;
+  border-radius: 0;
+  cursor: pointer;
+  color: #000;
+  font: inherit;
+  min-height: 8.5rem;
+}
+
+#mfMobileWireDetail .mf-mm-category-card:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+#mfMobileWireDetail .mf-mm-category-card:active {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+#mfMobileWireDetail .mf-mm-category-name {
+  display: block;
+  font-family: "VT323", ui-monospace, monospace;
+  font-size: clamp(1.35rem, 4.2vw, 1.85rem);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 0.45rem;
+  line-height: 1.15;
+}
+
+#mfMobileWireDetail .mf-mm-category-desc {
+  display: block;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: rgba(0, 0, 0, 0.62);
+  margin: 0 0 auto;
+  flex: 1 1 auto;
+}
+
+#mfMobileWireDetail .mf-mm-category-card__meta {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 0.65rem;
+  border-top: 2px solid rgba(0, 0, 0, 0.12);
+}
+
+#mfMobileWireDetail .mf-mm-category-count {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+#mfMobileWireDetail .mf-mm-category-card__icons {
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 5px;
+  align-items: center;
+}
+
+#mfMobileWireDetail .mf-mm-category-card__icon-sq {
+  display: block;
+  width: 13px;
+  height: 13px;
+  border: 2px solid #000;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+#mfMobileWireDetail .mf-mm-products-search {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.25rem;
+}
+
+#mfMobileWireDetail .mf-mm-legacy-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.7rem 0.75rem;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 1rem;
+  border: 2px solid #000;
+  border-radius: 0;
+  background: #fff;
+  color: #000;
+}
+
+#mfMobileWireDetail .mf-mm-legacy-input:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+#mfMobileWireDetail .mf-mm-legacy-clear {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.65rem 1rem;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 2px solid #000;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+#mfMobileWireDetail .mf-mm-products-grid-legacy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+#mfMobileWireDetail .mf-mm-product-card {
+  position: relative;
+  border: 4px solid #000;
+  padding: 1.35rem 1.25rem 1.25rem;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+#mfMobileWireDetail .mf-mm-prod-media {
+  position: relative;
+  margin: 0 0 1rem;
+}
+
+#mfMobileWireDetail .mf-mm-prod-alert-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 2px solid #000;
+  background: #fff;
+  color: #000;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+#mfMobileWireDetail .mf-mm-prod-alert-btn:active {
+  background: #000;
+  color: #fff;
+}
+
+#mfMobileWireDetail .mf-mm-prod-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border: 2px solid #000;
+  margin: 0;
+  background: #f0f0f0;
+  display: block;
+  box-sizing: border-box;
+}
+
+#mfMobileWireDetail .mf-mm-prod-name {
+  font-family: "VT323", ui-monospace, monospace;
+  font-size: clamp(1.15rem, 4.2vw, 1.45rem);
+  font-weight: 400;
+  margin: 0 0 0.5rem;
+  color: #000;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+#mfMobileWireDetail .mf-mm-prod-desc {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: rgba(0, 0, 0, 0.58);
+  margin: 0 0 0.75rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+#mfMobileWireDetail .mf-mm-prod-price {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #000;
+  margin: 0 0 0.2rem;
+}
+
+#mfMobileWireDetail .mf-mm-prod-unit {
+  font-size: 0.9rem;
+  opacity: 0.72;
+  color: #000;
+  margin: 0 0 0.5rem;
+}
+
+#mfMobileWireDetail .mf-mm-product-card .product-unit-options {
+  margin: 0.75rem 0 1rem;
+  padding-top: 0.5rem;
+  border-top: 2px solid #000;
+}
+
+#mfMobileWireDetail .mf-mm-product-card .product-unit-options-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.45rem;
+  opacity: 0.72;
+  letter-spacing: 0.04em;
+}
+
+#mfMobileWireDetail .mf-mm-product-card .product-unit-option {
+  display: inline-block;
+  padding: 0.28rem 0.55rem;
+  margin: 0.2rem 0.35rem 0.2rem 0;
+  border: 2px solid #000;
+  background: #000;
+  font-size: 0.72rem;
+  color: #fff;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+#mfMobileWireDetail .mf-mm-prod-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+#mfMobileWireDetail .mf-mm-prod-reserve,
+#mfMobileWireDetail .mf-mm-prod-history {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem 1rem;
+  border: 4px solid #000;
+  background: #fff;
+  color: #000;
+  font-family: "VT323", ui-monospace, monospace;
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0;
+}
+
+#mfMobileWireDetail .mf-mm-prod-reserve:active,
+#mfMobileWireDetail .mf-mm-prod-history:active {
+  background: #000;
+  color: #fff;
+}
+
+/* Hub inline categories — collapse animation + grid base (all viewports) */
+#mfHubCategoriesSection.mf-mm-hub-categories--collapsed {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border: none;
+  pointer-events: none;
+  transition:
+    max-height 0.5s ease,
+    opacity 0.4s ease,
+    margin 0.35s ease,
+    padding 0.35s ease;
+}
+
+#mfHubCategoriesSection.is-expanded {
+  max-height: 8000px;
+  opacity: 1;
+  overflow: visible;
+  margin-top: 1.5rem;
+  padding-top: 0.35rem;
+  padding-bottom: 2.25rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  pointer-events: auto;
+  transition:
+    max-height 0.55s cubic-bezier(0.33, 1, 0.68, 1),
+    opacity 0.45s ease,
+    margin 0.35s ease,
+    padding 0.35s ease;
+}
+
+/* Hub: smooth fade/slide when switching markets (heading + category grid) */
+.mf-mm-hub-categories-block {
+  transition:
+    opacity 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+    transform 0.42s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.mf-mm-hub-categories-block.mf-mm-hub-categories--switch-out {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mf-mm-hub-categories-block {
+    transition-duration: 0.01ms;
+  }
+
+  .mf-mm-hub-categories-block.mf-mm-hub-categories--switch-out {
+    transform: none;
+  }
+
+  #mfMarketsMobileShell .mf-mm-row {
+    transition: none !important;
+  }
+}
+
+#mfHubCategoryGrid.mf-mm-hub-category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+/* Hub category cards — same brutalist box as homepage BROWSE BY CATEGORY (#mfCategoryCards .card__box, category-carousel.css) */
+#mfHubCategoriesSection .mf-mm-category-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1.35rem 1.25rem 1.15rem;
+  text-align: left;
+  background: #fff;
+  border: 2px solid #0a0a0a;
+  border-radius: 0;
+  cursor: pointer;
+  color: #0a0a0a;
+  font: inherit;
+  min-height: 8.5rem;
+  -webkit-appearance: none;
+  appearance: none;
+  box-shadow: 8px 8px 0 #0a0a0a;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+#mfHubCategoriesSection .mf-mm-category-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 11px 11px 0 #0a0a0a;
+  border-color: #0a0a0a;
+}
+
+#mfHubCategoriesSection .mf-mm-category-card:active {
+  transform: translate(1px, 1px);
+  box-shadow: 6px 6px 0 #0a0a0a;
+}
+
+#mfHubCategoriesSection .mf-mm-category-name {
+  display: block;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: clamp(1.35rem, 4.2vw, 1.85rem);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 0.45rem;
+  line-height: 1.15;
+}
+
+#mfHubCategoriesSection .mf-mm-category-desc {
+  display: block;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: rgba(0, 0, 0, 0.62);
+  margin: 0 0 auto;
+  flex: 1 1 auto;
+}
+
+#mfHubCategoriesSection .mf-mm-category-card__meta {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 0.65rem;
+  border-top: 2px solid rgba(10, 10, 10, 0.14);
+}
+
+#mfHubCategoriesSection .mf-mm-category-count {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+#mfHubCategoriesSection .mf-mm-category-card__icons {
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 5px;
+  align-items: center;
+}
+
+#mfHubCategoriesSection .mf-mm-category-card__icon-sq {
+  display: block;
+  width: 13px;
+  height: 13px;
+  border: 2px solid #0a0a0a;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #mfHubCategoriesSection .mf-mm-category-card {
+    transition: none;
+  }
+
+  #mfHubCategoriesSection .mf-mm-category-card:hover,
+  #mfHubCategoriesSection .mf-mm-category-card:active {
+    transform: none;
+    box-shadow: 8px 8px 0 #0a0a0a;
+  }
+}
+
+/* Desktop only: Inter headings, row selection, 4-col grid, hub product panel (does not override mobile wireframe) */
+@media (min-width: 769px) {
+  #mfMarketsMobileShell button.mf-mm-row {
+    font: inherit;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  #mfMarketsMobileShell .mf-mm-row {
+    transition:
+      background-color 0.38s ease,
+      box-shadow 0.38s ease;
+  }
+
+  .mf-mm-row--selected {
+    background-color: rgba(0, 0, 0, 0.06) !important;
+    box-shadow: inset 3px 0 0 #000;
+  }
+
+  #mfHubCategoryGrid.mf-mm-hub-category-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Last row: two cards each span half the grid (2×2 in a 4-col track) */
+  #mfHubCategoryGrid.mf-mm-hub-category-grid .mf-mm-category-card:nth-child(5),
+  #mfHubCategoryGrid.mf-mm-hub-category-grid .mf-mm-category-card:nth-child(6) {
+    grid-column: span 2;
+  }
+
+  #mfHubCategoriesSection .mf-mm-cat-eyebrow {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin: 0 0 0.5rem;
+    color: #000;
+    opacity: 0.55;
+  }
+
+  #mfHubCategoriesSection .mf-mm-market-heading {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: clamp(1.65rem, 4.5vw, 2.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0 0 0.5rem;
+    color: #000;
+  }
+
+  #mfHubCategoriesSection .mf-mm-market-sub {
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 1rem;
+    opacity: 0.72;
+    margin: 0 0 1.5rem;
+    color: #000;
+  }
+
+  #mfHubCategoriesSection .mf-mm-category-name {
+    font-size: clamp(1.2rem, 3.8vw, 1.65rem);
+  }
+
+  #mfHubCategoriesSection .mf-mm-category-count {
+    text-transform: lowercase;
+  }
+
+  #mfHubProductsPanel {
+    margin-top: 1.75rem;
+    padding-top: 0.5rem;
+    border-top: 2px solid rgba(0, 0, 0, 0.12);
+  }
+
+  #mfHubProductsPanel .mf-mm-products-search {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-bottom: 1.25rem;
+  }
+
+  #mfHubProductsPanel .mf-mm-legacy-input,
+  #mfHubProductsPanel .mf-mm-legacy-clear {
+    font-family: Inter, system-ui, sans-serif;
+  }
+
+  #mfHubProductsPanel .mf-mm-legacy-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.7rem 0.75rem;
+    font-size: 1rem;
+    border: 2px solid #000;
+    border-radius: 0;
+    background: #fff;
+    color: #000;
+  }
+
+  #mfHubProductsPanel .mf-mm-legacy-clear {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.65rem 1rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 2px solid #000;
+    background: #fff;
+    color: #000;
+    cursor: pointer;
+    border-radius: 0;
+  }
+
+  #mfHubProductsPanel .mf-mm-products-grid-legacy {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  #mfHubProductsPanel .mf-mm-product-card {
+    position: relative;
+    border: 4px solid #000;
+    padding: 1.35rem 1.25rem 1.25rem;
+    background: #fff;
+    box-sizing: border-box;
+  }
+
+  /* Desktop: content wrapper has no extra padding (card padding handles layout) */
+  #mfHubProductsPanel .mf-mm-prod-body {
+    padding: 0;
+  }
+
+  #mfHubProductsPanel .mf-mm-prod-media {
+    position: relative;
+    margin: 0 0 1rem;
+  }
+
+  #mfHubProductsPanel .mf-mm-prod-alert-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    z-index: 2;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border: 2px solid #000;
+    background: #fff;
+    color: #000;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 0;
+  }
+
+  #mfHubProductsPanel .mf-mm-prod-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid #000;
+    margin: 0;
+    background: #f0f0f0;
+    display: block;
+    box-sizing: border-box;
+  }
+
+  #mfHubProductsPanel .mf-mm-prod-name {
+    font-family: "VT323", ui-monospace, monospace;
+    font-size: clamp(1.15rem, 4.2vw, 1.45rem);
+    font-weight: 400;
+    margin: 0 0 0.5rem;
+    color: #000;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+
+  #mfHubProductsPanel .mf-mm-prod-desc {
+    font-size: 0.85rem;
+    line-height: 1.45;
+    color: rgba(0, 0, 0, 0.58);
+    margin: 0 0 0.75rem;
+  }
+
+  #mfHubProductsPanel .mf-mm-prod-price {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #000;
+    margin: 0 0 0.2rem;
+  }
+
+  #mfHubProductsPanel .mf-mm-prod-unit {
+    font-size: 0.9rem;
+    opacity: 0.72;
+    color: #000;
+    margin: 0 0 0.5rem;
+  }
+
+  #mfHubProductsPanel .mf-mm-prod-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  #mfHubProductsPanel .mf-mm-prod-reserve,
+  #mfHubProductsPanel .mf-mm-prod-history {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.75rem 1rem;
+    border: 4px solid #000;
+    background: #fff;
+    color: #000;
+    font-family: "VT323", ui-monospace, monospace;
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 0;
+  }
+}
+
+/* Hub → fullscreen Osmo: horizontal scroll container (matches bundled slider behavior) */
+.mf-hub-osmo-slider-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+
+.mf-hub-osmo-slider-scroll .mf-osmo-slide {
+  scroll-snap-align: center;
+}
+
+/* ── Desktop: hub uses grid + no mobile-only search / “all markets” row ── */
+@media (min-width: 769px) {
+  #mfHubMarketsSearchWrap {
+    display: none !important;
+  }
+}
+
+/* Mobile hub layout lives in markets-mobile-hub.css (class .mf-mm-hub--mobile on #mfMarketsMobileShell). */

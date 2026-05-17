@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FarmScout Premium Alert - Your Price Drop</title>
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #FFFFFF;
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+        
+        .email-container { 
+            max-width: 600px; 
+            margin: 20px auto; 
+            background: #FFFFFF;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        /* Header Section with Gradient */
+        .header-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="a"><stop offset="0" stop-color="%23fff" stop-opacity=".1"/><stop offset="1" stop-color="%23fff" stop-opacity="0"/></radialGradient></defs><circle cx="20" cy="20" r="20" fill="url(%23a)"/><circle cx="80" cy="40" r="15" fill="url(%23a)"/><circle cx="40" cy="80" r="25" fill="url(%23a)"/></svg>') repeat;
+            opacity: 0.3;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .celebration-badge {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: #FFFFFF;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 8px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .logo-section {
+            margin-bottom: 16px;
+        }
+        
+        .logo {
+            font-size: 32px;
+            font-weight: 900;
+            color: #FFFFFF;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            letter-spacing: -1px;
+        }
+        
+        .tagline {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+        
+        .main-title {
+            font-size: 42px;
+            font-weight: 900;
+            color: #FFFFFF;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            margin-top: 20px;
+            background: linear-gradient(45deg, #FFFFFF, #f0f8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Floating Product Section */
+        .product-showcase {
+            background: #FFFFFF;
+            padding: 0;
+            position: relative;
+            margin-top: -30px;
+        }
+        
+        .product-card {
+            background: linear-gradient(145deg, #FFFFFF 0%, #f8fafc 100%);
+            margin: 30px;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+        }
+        
+        .product-image-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+        
+        .product-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 20px;
+            object-fit: cover;
+            border: 4px solid #FFFFFF;
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.3);
+            display: block;
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: #FFFFFF;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 6px 12px;
+            border-radius: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .product-name {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1a202c;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        
+        .product-subtitle {
+            font-size: 14px;
+            color: #718096;
+            margin-bottom: 24px;
+            font-weight: 500;
+        }
+        
+        /* Price Comparison Card */
+        .price-comparison {
+            background: linear-gradient(145deg, #f7fafc 0%, #edf2f7 100%);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 24px 0;
+            border: 2px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price-comparison::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+        }
+        
+        .price-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .price-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 4px;
+        }
+        
+        .price-subtitle {
+            font-size: 12px;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .price-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 16px 0;
+        }
+        
+        .price-before {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .price-arrow {
+            flex: 0 0 60px;
+            text-align: center;
+            color: #667eea;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .price-after {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .price-label {
+            font-size: 11px;
+            color: #a0aec0;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 4px;
+            letter-spacing: 0.5px;
+        }
+        
+        .price-old {
+            font-size: 18px;
+            color: #a0aec0;
+            text-decoration: line-through;
+            font-weight: 600;
+        }
+        
+        .price-new {
+            font-size: 28px;
+            color: #38a169;
+            font-weight: 800;
+            text-shadow: 0 2px 10px rgba(56, 161, 105, 0.2);
+        }
+        
+        /* Savings Badge */
+        .savings-celebration {
+            background: linear-gradient(135deg, #38a169 0%, #48bb78 100%);
+            color: #FFFFFF;
+            padding: 16px 24px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            text-align: center;
+            margin: 24px auto;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(56, 161, 105, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+        
+        .savings-celebration::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+        }
+        
+        .savings-celebration::after {
+            content: '';
+            position: absolute;
+            right: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+        }
+        
+        /* Message Section */
+        .message-section {
+            padding: 30px;
+            text-align: center;
+            background: #FFFFFF;
+        }
+        
+        .alert-message {
+            font-size: 16px;
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .alert-message strong {
+            color: #667eea;
+            font-weight: 700;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            text-align: center;
+            margin: 0;
+        }
+        
+        .cta-text {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+        
+        .cta-button {
+            background: #FFFFFF;
+            color: #667eea;
+            padding: 16px 32px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #f7fafc;
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .footer-content {
+            font-size: 14px;
+            color: #718096;
+            line-height: 1.6;
+        }
+        
+        .footer-links {
+            margin: 16px 0;
+        }
+        
+        .footer-links a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .footer-links a:hover {
+            color: #764ba2;
+        }
+        
+        .footer-brand {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid #e2e8f0;
+            font-size: 12px;
+            color: #a0aec0;
+        }
+        
+        /* Responsive Design */
+        @media only screen and (max-width: 600px) {
+            .email-container { 
+                margin: 10px; 
+                border-radius: 12px;
+            }
+            
+            .header-section {
+                padding: 30px 20px;
+            }
+            
+            .main-title { 
+                font-size: 32px; 
+            }
+            
+            .product-card {
+                margin: 20px;
+                padding: 20px;
+            }
+            
+            .product-image {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .price-new { 
+                font-size: 24px; 
+            }
+            
+            .cta-button {
+                padding: 14px 28px;
+                font-size: 14px;
+            }
+            
+            .price-row {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .price-arrow {
+                transform: rotate(90deg);
+                flex: none;
+            }
+        }
+        
+        /* Email Client Compatibility */
+        table {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 0;
+            outline: none;
+            text-decoration: none;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        .no-underline {
+            text-decoration: none !important;
+        }
+        
+        /* Outlook specific fixes */
+        .outlook-spacer {
+            font-size: 1px;
+            line-height: 1px;
+            mso-line-height-rule: exactly;
+        }
+    </style>
+</head>
+<body style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); margin: 0; padding: 16px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+    <!-- Email Container -->
+    <table role="presentation" style="width: 100%; max-width: 600px; margin: 20px auto; background: #FFFFFF; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+        <tr>
+            <td>
+                <!-- Header Section -->
+                <table role="presentation" style="width: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);">
+                    <tr>
+                        <td style="padding: 40px 30px; text-align: center; color: #FFFFFF;">
+                            <div style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); color: #FFFFFF; font-size: 12px; font-weight: 700; letter-spacing: 1px; padding: 8px 20px; border-radius: 25px; display: inline-block; margin-bottom: 20px; text-transform: uppercase; border: 1px solid rgba(255, 255, 255, 0.3);">
+                                PRICE DROP ALERT
+                            </div>
+                            
+                            <div style="margin-bottom: 16px;">
+                                <div style="font-size: 32px; font-weight: 900; color: #FFFFFF; text-shadow: 0 4px 20px rgba(0,0,0,0.3); letter-spacing: -1px;">
+                                    FARMSCOUT
+                                </div>
+                                <div style="font-size: 14px; color: rgba(255, 255, 255, 0.8); font-weight: 500;">
+                                    Tapat na Presyo
+                                </div>
+                            </div>
+                            
+                            <div style="font-size: 42px; font-weight: 900; color: #FFFFFF; text-shadow: 0 4px 20px rgba(0,0,0,0.3); letter-spacing: -1.5px; line-height: 1.1; margin-top: 20px;">
+                                Amazing Deal!
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                
+                <!-- Product Showcase -->
+                <table role="presentation" style="width: 100%; background: #FFFFFF;">
+                    <tr>
+                        <td style="padding: 0; margin-top: -30px;">
+                            <div style="background: linear-gradient(145deg, #FFFFFF 0%, #f8fafc 100%); margin: 30px; border-radius: 20px; padding: 30px; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,0.1); border: 1px solid rgba(102, 126, 234, 0.1);">
+                                
+                                <!-- Product Image -->
+                                <div style="position: relative; display: inline-block; margin-bottom: 24px;">
+                                    <img src="{{PRODUCT_IMAGE}}" alt="{{PRODUCT_NAME}}" style="width: 140px; height: 140px; border-radius: 20px; object-fit: cover; border: 4px solid #FFFFFF; box-shadow: 0 8px 30px rgba(102, 126, 234, 0.3); display: block;" onerror="this.style.display='none';">
+                                    <div style="position: absolute; top: -10px; right: -10px; background: linear-gradient(45deg, #667eea, #764ba2); color: #FFFFFF; font-size: 10px; font-weight: bold; padding: 6px 12px; border-radius: 15px; text-transform: uppercase; letter-spacing: 0.5px; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);">
+                                        FRESH
+                                    </div>
+                                </div>
+                                
+                                <!-- Product Info -->
+                                <div style="font-size: 24px; font-weight: 800; color: #1a202c; margin-bottom: 8px; letter-spacing: -0.5px;">
+                                    {{FILIPINO_NAME}}
+                                </div>
+                                <div style="font-size: 14px; color: #718096; margin-bottom: 24px; font-weight: 500;">
+                                    {{PRODUCT_NAME}}
+                                </div>
+                                
+                                <!-- Price Comparison -->
+                                <div style="background: linear-gradient(145deg, #f7fafc 0%, #edf2f7 100%); border-radius: 16px; padding: 24px; margin: 24px 0; border: 2px solid #e2e8f0; position: relative;">
+                                    <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);"></div>
+                                    
+                                    <div style="text-align: center; margin-bottom: 20px;">
+                                        <div style="font-size: 16px; font-weight: 700; color: #2d3748; margin-bottom: 4px;">Price Comparison</div>
+                                        <div style="font-size: 12px; color: #718096; text-transform: uppercase; letter-spacing: 1px;">Per {{UNIT}}</div>
+                                    </div>
+                                    
+                                    <!-- Desktop Price Row -->
+                                    <table role="presentation" style="width: 100%; margin: 16px 0;" class="price-table-desktop">
+                                        <tr>
+                                            <td style="text-align: center; width: 40%; padding: 8px;">
+                                                <div style="font-size: 11px; color: #a0aec0; text-transform: uppercase; font-weight: 600; margin-bottom: 4px; letter-spacing: 0.5px;">Before</div>
+                                                <div style="font-size: 18px; color: #a0aec0; text-decoration: line-through; font-weight: 600;">{{OLD_PRICE}}</div>
+                                            </td>
+                                            <td style="text-align: center; width: 20%; color: #667eea; font-size: 20px; font-weight: bold;">
+                                                →
+                                            </td>
+                                            <td style="text-align: center; width: 40%; padding: 8px;">
+                                                <div style="font-size: 11px; color: #38a169; text-transform: uppercase; font-weight: 600; margin-bottom: 4px; letter-spacing: 0.5px;">Now</div>
+                                                <div style="font-size: 28px; color: #38a169; font-weight: 800; text-shadow: 0 2px 10px rgba(56, 161, 105, 0.2);">{{NEW_PRICE}}</div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                
+                                <!-- Savings Badge -->
+                                <div style="background: linear-gradient(135deg, #38a169 0%, #48bb78 100%); color: #FFFFFF; padding: 16px 24px; border-radius: 50px; font-size: 16px; font-weight: 700; text-align: center; margin: 24px auto; display: inline-block; box-shadow: 0 8px 25px rgba(56, 161, 105, 0.3); text-transform: uppercase; letter-spacing: 0.5px; position: relative;">
+                                    YOU SAVE {{PRICE_CHANGE}} ({{PRICE_CHANGE_PERCENT}}% OFF)
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                
+                <!-- Message Section -->
+                <table role="presentation" style="width: 100%; background: #FFFFFF;">
+                    <tr>
+                        <td style="padding: 30px; text-align: center;">
+                            <div style="font-size: 16px; color: #4a5568; line-height: 1.6; margin-bottom: 30px;">
+                                <strong>Price Alert Notification</strong><br><br>
+                                Good news! The price for <strong style="color: #667eea;">{{FILIPINO_NAME}}</strong> has dropped to your target price.
+                                <br><br>
+                                {{ALERT_MESSAGE}}
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                
+                <!-- CTA Section -->
+                <table role="presentation" style="width: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <tr>
+                        <td style="padding: 30px; text-align: center;">
+                            <div style="color: rgba(255, 255, 255, 0.9); font-size: 16px; margin-bottom: 20px; line-height: 1.5; font-weight: 500;">
+                                Visit the market now to get this item at the great price!<br>
+                                Don't miss out on this deal.
+                            </div>
+                            <a href="http://localhost/farmscout_online/market-finder.php" style="background: #FFFFFF; color: #667eea; padding: 16px 32px; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 16px; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block; box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);" class="no-underline">
+                                VISIT MARKET
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                
+                <!-- Footer -->
+                <table role="presentation" style="width: 100%; background: #f7fafc; border-top: 1px solid #e2e8f0;">
+                    <tr>
+                        <td style="padding: 30px; text-align: center;">
+                            <div style="font-size: 14px; color: #718096; line-height: 1.6;">
+                                <div style="margin: 16px 0;">
+                                    <a href="http://localhost/farmscout_online" style="color: #667eea; text-decoration: none; margin: 0 12px; font-weight: 600; font-size: 14px;">Visit FarmScout</a>
+                                    <a href="http://localhost/farmscout_online/price-alerts.php" style="color: #667eea; text-decoration: none; margin: 0 12px; font-weight: 600; font-size: 14px;">Manage Alerts</a>
+                                    <a href="http://localhost/farmscout_online/unsubscribe.php?email={{EMAIL}}&token={{UNSUBSCRIBE_TOKEN}}" style="color: #e53e3e; text-decoration: none; margin: 0 12px; font-weight: 600; font-size: 14px;">Unsubscribe</a>
+                                    <a href="mailto:support@farmscout.com" style="color: #667eea; text-decoration: none; margin: 0 12px; font-weight: 600; font-size: 14px;">Contact Support</a>
+                                </div>
+                                
+                                <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid #e2e8f0; font-size: 12px; color: #a0aec0;">
+                                    <div style="margin-bottom: 8px;">
+                                        <strong style="color: #4a5568;">FARMSCOUT</strong> | Tapat na Presyo
+                                    </div>
+                                    Sent to {{EMAIL}}<br>
+                                    &copy; {{CURRENT_YEAR}} FarmScout Online. All rights reserved.<br>
+                                    Baloan Public Market Digital Platform
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
