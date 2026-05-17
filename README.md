@@ -6,6 +6,19 @@ Web app for **Baloan Public Market**: product discovery, price comparison, multi
 
 > Portfolio / academic project — suitable for OJT, capstone, or resume demos. Configure your own `.env` and database; do not commit secrets.
 
+## Screenshots
+
+Save PNGs in `docs/screenshots/` as `products.png`, `reserve.png`, and `login.png` (see paths below).
+
+### Products page
+![Products browse](docs/screenshots/products.png)
+
+### Reserve product (modal)
+![Reservation flow](docs/screenshots/reserve.png)
+
+### Login
+![Login](docs/screenshots/login.png)
+
 ---
 
 ## Highlights (for recruiters)
