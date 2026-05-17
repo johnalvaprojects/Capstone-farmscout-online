@@ -8,8 +8,6 @@ Web app for **Baloan Public Market**: product discovery, price comparison, multi
 
 ## Screenshots
 
-Save PNGs in `docs/screenshots/` as `products.png`, `reserve.png`, and `login.png` (see paths below).
-
 ### Products page
 ![Products browse](docs/screenshots/products.png)
 
