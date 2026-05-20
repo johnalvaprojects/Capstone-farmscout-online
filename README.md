@@ -1,8 +1,15 @@
 # FarmScout Online
 
+[![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat&logo=php&logoColor=white)](https://www.php.net/)
+[![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev/)
+
 Web app for **Baloan Public Market**: product discovery, price comparison, multi-product reservations, farmer and admin dashboards, and reservation-linked chat.
 
 **Stack:** PHP 7.4+ (PDO), MySQL, Vite + React SPA (`spa-src/` → `app/`), Apache/XAMPP-friendly layout.
+
+**My role:** Full-stack development — Vite/React SPA, PHP REST-style APIs, MySQL schema and migrations (reservations, chat, dashboards), shared scripts for the reservation flow, and deployment packaging for production hosting.
 
 > Portfolio / academic project — suitable for OJT, capstone, or resume demos. Configure your own `.env` and database; do not commit secrets.
 
@@ -88,32 +95,25 @@ Web app for **Baloan Public Market**: product discovery, price comparison, multi
 
 ---
 
-## Publish on GitHub (resume)
+## Quick start
 
-1. **Before the first push** — confirm `.env` is not tracked and `database/farmscout_online.sql` is ignored (see `.gitignore`).
-2. From the project folder:
+After cloning into your web root (see [Local setup](#local-setup-xampp-style) for detail):
 
-   ```bash
-   git init
-   git add .
-   git status
-   ```
+1. Copy `config/env.sample` to **`.env`** in the project root and set `DB_*`, `APP_URL`, and any optional keys (email, maps, OAuth).
+2. Create the database and run SQL in order — see [**database/README.md**](database/README.md) (`schema.sql`, then `install_missing_dashboard_tables.sql`, then `reservation_multi_product_and_public_refs.sql` as needed).
+3. From `spa-src/`: `npm install` then `npm run build` (output goes to `app/`).
+4. Open `http://localhost/<your-folder>/app/` for the SPA, or `login.php` / `index.php` for classic entry points.
 
-   Review `git status`: no `.env`, no `farmscout_online.sql`, no `node_modules`.
+Before every commit, check `git status`: do not track `.env`, `database/farmscout_online.sql`, or `node_modules`.
 
-3. Commit and push:
+---
 
-   ```bash
-   git commit -m "Initial commit: FarmScout Online capstone project"
-   git branch -M main
-   git remote add origin https://github.com/YOUR_USERNAME/farmscout-online.git
-   git push -u origin main
-   ```
+## GitHub profile (for employers)
 
-4. On the repo page, add a short **About** description and topics: `php`, `mysql`, `vite`, `react`, `capstone`.
+On the repository home page, use the **About** section (gear icon) to add a short description and topics (e.g. `php`, `mysql`, `vite`, `react`, `capstone`, `portfolio`). On your GitHub profile, use **Customize your pins** to feature this repository.
 
-5. Optional: add 2–3 screenshots under `docs/screenshots/` for the README.
+---
 
-## License / academic use
+## License
 
-Use and adapt for **OJT / capstone / portfolio** as allowed by your school or employer; add your own license file if you publish publicly.
+Licensed under the [MIT License](LICENSE). Use and adapt for **OJT / capstone / portfolio** as allowed by your school or employer.
